@@ -3,14 +3,13 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import ProblemSelector from '../ProblemSelector'
 
 const ProblemsEdit = () => {
-  const { editingRecord, setEditingRecordData, allProblems } = useSetlists()
+  const { editingRecordId, tmpRecords, setTmpRecords } = useSetlists()
 
   return (
     <div>
       <ProblemSelector
         value={editingRecord['problems']}
         setValue={(info) => {
-          console.log(info)
           setEditingRecordData('problems', info)
         }}
       />

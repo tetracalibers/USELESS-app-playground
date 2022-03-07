@@ -6,7 +6,7 @@ import { css } from '@emotion/css'
 import classNames from 'classnames'
 
 const EditButton = ({ recordId }) => {
-  const { setEditingRecord, editingRecord, allProblems } = useSetlists()
+  const { setEditingRecordId } = useSetlists()
 
   const css_wrap = css`
     .btn-flat {
@@ -52,14 +52,7 @@ const EditButton = ({ recordId }) => {
         node="button"
         waves="light"
         onClick={(e) => {
-          console.log(record)
-          const problems = record['problems'].map((problem) => {
-            return allProblems.find((info) => problem == info.content)
-          })
-          setEditingRecord({
-            ...record,
-            problems: problems,
-          })
+          setEditingRecordId(recordId)
         }}
       />
     </div>

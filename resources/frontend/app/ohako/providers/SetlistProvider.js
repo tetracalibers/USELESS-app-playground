@@ -20,7 +20,7 @@ const SetlistProvider = ({ children }) => {
   const [allRecords, setAllRecords] = useState([])
   const [allProblems, setAllProblems] = useState([])
   const [initComplete, setInitComplete] = useState(true)
-  const [tmpRecord, setTmpRecord] = useState([])
+  const [tmpRecords, setTmpRecords] = useState([])
   const [editingRecordId, setEditingRecordId] = useState(-1)
 
   const addRecord = (newRecord) => {
@@ -99,8 +99,8 @@ const SetlistProvider = ({ children }) => {
         filterConditions,
         setCondition,
         resetEditingRecord,
-        tmpRecord,
-        setTmpRecord,
+        tmpRecords,
+        setTmpRecords,
         editingRecordId,
         setEditingRecordId,
       }}

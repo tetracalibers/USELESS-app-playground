@@ -5,8 +5,14 @@ import { useLaravelSanctum } from '../../common/hooks/useLaravelSanctum'
 import parseISO from 'date-fns/parseISO'
 
 export const useTableInit = () => {
-  const { allRecords, setAllRecords, user, setInitComplete, initComplete } =
-    useSetlists()
+  const {
+    allRecords,
+    setAllRecords,
+    user,
+    setInitComplete,
+    initComplete,
+    setTmpRecords,
+  } = useSetlists()
   const { api } = useLaravelSanctum()
 
   const initSetlistFetch = async () => {
@@ -44,6 +50,7 @@ export const useTableInit = () => {
             score: obj.score,
             memo: obj.memo,
             problems: obj.problems.map((problem) => problem.content),
+            problemsData: obj.problems,
             registDate: parseISO(obj.created_at),
           }
         })
@@ -53,7 +60,10 @@ export const useTableInit = () => {
   })
 
   useEffect(() => {
-    if (!initComplete) setInitComplete(true)
+    if (!initComplete) {
+      setInitComplete(true)
+      setTmpRecords(allRecords)
+    }
   }, [allRecords])
 
   useEffect(() => {
