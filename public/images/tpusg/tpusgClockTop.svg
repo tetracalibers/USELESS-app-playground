@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      <![CDATA[
+      @font-face {
+        font-family: 'Megrim';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("data:application/font-woff; charset=utf-8; base64,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") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      text {
+        font-family: "Megrim";
+      }
+
+      line {
+        stroke: silver;
+        stroke-width: .5;
+        text-shadow: #ffffff 2px 2px 20px, #ffffff -2px -2px 20px;
+      }
+
+      #site_name {
+        letter-spacing: .2em;
+        stroke: white;
+        stroke-width: .2;
+        fill: white;
+        font-size: .75em;
+        text-shadow: #f5f7facc 4px 4px 10px, #f5f7facc -4px -4px 10px;
+      }
+
+      #clock_number {
+        font-size: .5em;
+        stroke: #d9e4f590;
+        text-shadow: #d9e4f5cc 1px 1px 10px, #d9e4f5cc -1px -1px 10px;
+        fill: silver;
+        stroke-width: .3px;
+      }
+
+      #clock_circle {
+        fill: none;
+        stroke: #b8c6dbcc;
+        stroke-width: .4;
+      }
+
+      #clock_inner_circle {
+        fill: none;
+        stroke: #b8c6dbcc;
+        stroke-width: .2;
+      }
+
+      #clock_scale_small {
+        stroke: #d9e4f590;
+        fill: silver;
+        stroke-width: .1;
+        text-shadow: #d9e4f5cc 1px 1px 10px, #d9e4f5cc -1px -1px 10px;
+      }
+
+      #clock_scale_big {
+        stroke: #d9e4f590;
+        fill: silver;
+        stroke-width: .1;
+        text-shadow: #d9e4f5cc 1px 1px 10px, #d9e4f5cc -1px -1px 10px;
+      }
+      ]]>
+    </style>
+    <path d="M 20,60 a 45,45 0 1, 1 0,1 z" id="circle" />
+    <circle cx="65" cy="60.5" r=".8" transform="translate(0, -37)" id="clock_scale_big" />
+    <circle cx="65" cy="60.5" r=".4" transform="translate(0, -37)" id="clock_scale_small" />
+    <filter id="my_filter" filterUnits="objectBoundingBox">
+      <feComposite in="play" in2="SourceGraphic" operator="in" />
+    </filter>
+    <filter id="blur">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur" />
+      <feOffset in="blur" dx="2" dy="1" result="offserBlur" />
+      <feMerge>
+        <feMergeNode in="offsetBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="65" cy="60.5" r="44" transform="scale(4)" fill="none" />
+  <g transform="scale(4)" style="filter: url(#my_filter);">
+    <use transform="rotate(30, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(60, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(120, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(150, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(240, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(300, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(330, 65, 60.5)" href="#clock_scale_big" />
+    <use transform="rotate(6, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(12, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(18, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(24, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(36, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(42, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(48, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(54, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(66, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(72, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(78, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(84, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(96, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(102, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(108, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(114, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(126, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(132, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(138, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(144, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(156, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(162, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(168, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(174, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(186, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(192, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(198, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(204, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(216, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(222, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(228, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(234, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(246, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(252, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(258, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(264, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(276, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(282, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(288, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(294, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(306, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(312, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(318, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(324, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(336, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(342, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(348, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(354, 65, 60.5)" href="#clock_scale_small" />
+    <text x="62.5" y="64" transform="translate(37, 0)" id="clock_number">3</text>
+    <text x="61" y="63.5" transform="translate(0, -37)" id="clock_number">12</text>
+    <text x="62.5" y="64" transform="translate(-37, 0)" id="clock_number">9</text>
+    <text x="62.5" y="64" transform="translate(0, 37)" id="clock_number">6</text>
+    <g transform="rotate(30, 62.5, 64)">
+      <text x="62.5" y="64" transform="translate(0, 37) rotate(-30, 62.5, 64)" id="clock_number">7</text>
+    </g>
+    <line x1="65" x2="65" y1="60.5" y2="30" transform="rotate(144, 65, 60.5)" id="clock_long_hand" />
+    <line x1="65" x2="65" y1="60.5" y2="80" transform="rotate(42, 65, 60.5)" id="clock_short_hand" />
+    <text id="site_name" style="filter: url(#blur);">
+      <textPath href="#circle">
+        Try Playing UNISON SQUARE GARDEN
+      </textPath>
+    </text>
+  </g>
+</svg>

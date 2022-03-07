@@ -1,0 +1,25 @@
+.react-confirm-alert-blur {
+    filter: none !important;
+}
+
+.react-confirm-alert-overlay {
+    top: 30vh !important;
+    background: rgb(51 51 51 / 58%) !important;
+    backdrop-filter: blur(5px);
+    box-shadow: rgb(0 0 0 / 56%) 0px 22px 70px 4px;
+}
+
+.react-confirm-alert {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+}
+
+.custom-ui {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    text-align: center;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1165" height="677">
+    <circle cx="-2%" cy="0" r="2em" stroke="#ac398acc" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="15em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="28em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="41em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="54em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="67em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="80em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="93em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="-2%" cy="0" r="106em" stroke="rgba(172, 57, 138, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+
+    <circle cx="102%" cy="0%" r="2em" stroke="#ced643cc" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="15em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="28em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="41em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="54em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="67em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="80em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="93em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="0%" r="106em" stroke="rgba(206, 214, 67, .8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    
+    <circle cx="0%" cy="100%" r="2em" stroke="#571e80cc" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="15em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="28em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="41em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="54em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="67em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="80em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="93em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="0%" cy="100%" r="106em" stroke="rgba(87, 30, 128, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    
+    <circle cx="102%" cy="100%" r="2em" stroke="#4faae3cc" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="15em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="28em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="41em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="54em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="67em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="80em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="93em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+    <circle cx="102%" cy="100%" r="106em" stroke="rgba(79, 170, 227, 0.8)" fill="rgba(255, 255, 255, 0)" stroke-width="4em"/>
+</svg>
