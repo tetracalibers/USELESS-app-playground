@@ -48,6 +48,12 @@ const SetlistProvider = ({ children }) => {
     )
   }
 
+  const rewriteTmpRecord = (label, value) => {
+    let cloneTmpRecords = [...tmpRecords]
+    cloneTmpRecords[editingRecordId][label] = value
+    setTmpRecords(cloneTmpRecords)
+  }
+
   const visibleColumnValuesInitEmpty = useMemo(() => {
     return visibleColumnValues('')
   }, [])
@@ -101,6 +107,7 @@ const SetlistProvider = ({ children }) => {
         resetEditingRecord,
         tmpRecords,
         setTmpRecords,
+        rewriteTmpRecord,
         editingRecordId,
         setEditingRecordId,
       }}
