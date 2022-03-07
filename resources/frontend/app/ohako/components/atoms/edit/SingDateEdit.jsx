@@ -3,13 +3,13 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import DatePicker from '../../../../common/components/DatePicker'
 
 const SingDateEdit = () => {
-  const { editingRecord, setEditingRecordData } = useSetlists()
+  const { getEditingRecordData, rewriteTmpRecord } = useSetlists()
 
   return (
     <div>
       <DatePicker
-        selected={editingRecord['singDate']}
-        onChange={(date) => setEditingRecordData('singDate', date)}
+        selected={getEditingRecordData('singDate')}
+        onChange={(date) => rewriteTmpRecord('singDate', date)}
       />
     </div>
   )

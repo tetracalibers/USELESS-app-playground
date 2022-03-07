@@ -11,7 +11,7 @@ export const useTableInit = () => {
     user,
     setInitComplete,
     initComplete,
-    setTmpRecords,
+    initTmpRecords,
   } = useSetlists()
   const { api } = useLaravelSanctum()
 
@@ -62,7 +62,7 @@ export const useTableInit = () => {
   useEffect(() => {
     if (!initComplete) {
       setInitComplete(true)
-      setTmpRecords(allRecords)
+      initTmpRecords()
     }
   }, [allRecords])
 

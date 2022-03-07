@@ -8,9 +8,9 @@ const ProblemsEdit = () => {
   return (
     <div>
       <ProblemSelector
-        value={tmpRecords['problems']}
+        value={tmpRecords['problemsData']}
         setValue={(info) => {
-          rewriteTmpRecord('problems', info)
+          rewriteTmpRecord('problemsData', info)
         }}
       />
     </div>

@@ -20,7 +20,13 @@ const SetlistProvider = ({ children }) => {
   const [allRecords, setAllRecords] = useState([])
   const [allProblems, setAllProblems] = useState([])
   const [initComplete, setInitComplete] = useState(true)
-  const [tmpRecords, setTmpRecords] = useState([])
+  const [tmpRecords, rewriteTmpRecords, setTmpRecords, initTmpRecords] =
+    useObjectState(
+      allRecords.reduce((obj, record) => {
+        obj[record.id] = record
+        return obj
+      }, {})
+    )
   const [editingRecordId, setEditingRecordId] = useState(-1)
 
   const addRecord = (newRecord) => {
@@ -49,9 +55,13 @@ const SetlistProvider = ({ children }) => {
   }
 
   const rewriteTmpRecord = (label, value) => {
-    let cloneTmpRecords = [...tmpRecords]
-    cloneTmpRecords[editingRecordId][label] = value
-    setTmpRecords(cloneTmpRecords)
+    let cloneTmpRecord = { ...tmpRecords }[editingRecordId]
+    cloneTmpRecord[label] = value
+    rewriteTmpRecords(editingRecordId, cloneTmpRecord)
+  }
+
+  const getEditingRecordData = (label) => {
+    return tmpRecords[editingRecordId][label]
   }
 
   const visibleColumnValuesInitEmpty = useMemo(() => {
@@ -108,8 +118,10 @@ const SetlistProvider = ({ children }) => {
         tmpRecords,
         setTmpRecords,
         rewriteTmpRecord,
+        initTmpRecords,
         editingRecordId,
         setEditingRecordId,
+        getEditingRecordData,
       }}
     >
       {children}

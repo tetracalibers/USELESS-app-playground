@@ -3,13 +3,13 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import Rating from '../../../../common/components/Rating'
 
 const RatingEdit = () => {
-  const { editingRecord, setEditingRecordData } = useSetlists()
+  const { getEditingRecordData, rewriteTmpRecord } = useSetlists()
 
   return (
     <div>
       <Rating
-        value={editingRecord['rating']}
-        onClick={(value) => setEditingRecordData('rating', value)}
+        value={getEditingRecordData('rating')}
+        onClick={(value) => rewriteTmpRecord('rating', value)}
       />
     </div>
   )

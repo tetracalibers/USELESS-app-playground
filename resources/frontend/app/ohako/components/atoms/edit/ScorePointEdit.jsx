@@ -3,13 +3,13 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import ScoreChartInput from '../../../../common/components/ScoreChartInput'
 
 const ScorePointEdit = () => {
-  const { editingRecord, setEditingRecordData } = useSetlists()
+  const { getEditingRecordData, rewriteTmpRecord } = useSetlists()
 
   return (
     <div>
       <ScoreChartInput
-        score={editingRecord['score']}
-        setScore={(value) => setEditingRecordData('score', value)}
+        score={getEditingRecordData('score')}
+        setScore={(value) => rewriteTmpRecord('score', value)}
       />
     </div>
   )
