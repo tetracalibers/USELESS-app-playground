@@ -3,13 +3,13 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import FlexibleTextarea from '../../../../common/components/FlexibleTextarea'
 
 const MemoEdit = () => {
-  const { editingRecord, setEditingRecordData } = useSetlists()
+  const { getEditingRecordData, rewriteTmpRecord } = useSetlists()
 
   return (
     <div>
-      <FlexibleTextarea 
-        value={editingRecord['memo']}
-        setValue={(value) => setEditingRecordData('memo', value)}
+      <FlexibleTextarea
+        value={getEditingRecordData('memo')}
+        setValue={(value) => rewriteTmpRecord('memo', value)}
       />
     </div>
   )

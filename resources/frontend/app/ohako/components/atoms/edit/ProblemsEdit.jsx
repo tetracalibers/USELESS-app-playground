@@ -3,12 +3,12 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import ProblemSelector from '../ProblemSelector'
 
 const ProblemsEdit = () => {
-  const { rewriteTmpRecord } = useSetlists()
+  const { getEditingRecordData, rewriteTmpRecord } = useSetlists()
 
   return (
     <div>
       <ProblemSelector
-        value={tmpRecords['problemsData']}
+        value={getEditingRecordData('problemsData')}
         setValue={(info) => {
           rewriteTmpRecord('problemsData', info)
         }}

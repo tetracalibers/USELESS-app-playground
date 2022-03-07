@@ -61,7 +61,7 @@ const SetlistProvider = ({ children }) => {
   }
 
   const getEditingRecordData = (label) => {
-    return tmpRecords[editingRecordId][label]
+    return editingRecordId != -1 ? tmpRecords[editingRecordId][label] : ''
   }
 
   const visibleColumnValuesInitEmpty = useMemo(() => {
@@ -114,7 +114,6 @@ const SetlistProvider = ({ children }) => {
         visibleColumnValuesInitFalse,
         filterConditions,
         setCondition,
-        resetEditingRecord,
         tmpRecords,
         setTmpRecords,
         rewriteTmpRecord,

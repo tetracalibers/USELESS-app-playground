@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { css } from '@emotion/css'
 import { useSetlists } from '../../../providers/SetlistProvider'
 import { BiUserVoice } from 'react-icons/bi'
 
 const MusicInfoNoEdit = () => {
-  const { editingRecord } = useSetlists()
-  const { artistName, songName, jacketImage } = editingRecord
+  const { editingRecordId, tmpRecords } = useSetlists()
+  const { artistName, songName, jacketImage } =
+    editingRecordId != -1
+      ? tmpRecords[editingRecordId]
+      : { artistName: '', songName: '', jacketImage: '' }
 
   const css_wrap = css`
     display: grid;
