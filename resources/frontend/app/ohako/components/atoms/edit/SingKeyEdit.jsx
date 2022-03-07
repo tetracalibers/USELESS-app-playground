@@ -11,7 +11,7 @@ const SingKeyEdit = () => {
         <SingKeyPicker
           primaryKey="edit"
           value={diff.singKey}
-          setValue={(value) => rewriteDiff('singKey', value)}
+          onClick={(value) => rewriteDiff('singKey', value)}
         />
       )}
     </div>
