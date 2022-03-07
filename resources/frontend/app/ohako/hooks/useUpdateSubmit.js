@@ -8,7 +8,7 @@ import { toast, Flip } from 'react-toastify'
 export const useUpdateSubmit = () => {
   const [isModalOpen, toggleModalOpen] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
-  const { setInitComplete } = useSetlists()
+  const { setInitComplete, setAllRecords } = useSetlists()
   const { api } = useLaravelSanctum()
   const { diff, resetDiff } = useEditDiff()
 
@@ -31,6 +31,10 @@ export const useUpdateSubmit = () => {
         setError(data.message)
         return
       }
+      const updatedAllRecords = setAllRecords.map((obj) =>
+        obj.id == diff.id ? diff : obj
+      )
+      setAllRecords(updatedAllRecords)
       setErrorMsg('')
       resetDiff()
       toggleModalOpen(false)
