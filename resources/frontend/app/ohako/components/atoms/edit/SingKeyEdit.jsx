@@ -3,15 +3,17 @@ import { useSetlists } from '../../../providers/SetlistProvider'
 import SingKeyPicker from '../SingKeyPicker'
 
 const SingKeyEdit = () => {
-  const { getEditingRecordData, rewriteTmpRecord } = useSetlists()
+  const { tmpRecords, editingRecordId, rewriteTmpRecord } = useSetlists()
 
   return (
     <div>
-      <SingKeyPicker
-        primaryKey="edit"
-        value={getEditingRecordData('singKey')}
-        setValue={(value) => rewriteTmpRecord('singKey', value)}
-      />
+      {editingRecordId != -1 && (
+        <SingKeyPicker
+          primaryKey="edit"
+          value={tmpRecords[editingRecordId].singKey}
+          setValue={(value) => rewriteTmpRecord('singKey', value)}
+        />
+      )}
     </div>
   )
 }

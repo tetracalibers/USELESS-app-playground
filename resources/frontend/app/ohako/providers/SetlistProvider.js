@@ -60,10 +60,6 @@ const SetlistProvider = ({ children }) => {
     rewriteTmpRecords(editingRecordId, cloneTmpRecord)
   }
 
-  const getEditingRecordData = (label) => {
-    return editingRecordId != -1 ? tmpRecords[editingRecordId][label] : ''
-  }
-
   const visibleColumnValuesInitEmpty = useMemo(() => {
     return visibleColumnValues('')
   }, [])
@@ -120,7 +116,6 @@ const SetlistProvider = ({ children }) => {
         initTmpRecords,
         editingRecordId,
         setEditingRecordId,
-        getEditingRecordData,
       }}
     >
       {children}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSetlists } from '../../providers/SetlistProvider'
 import { useUpdateSubmit } from '../../hooks/useUpdateSubmit'
 import MusicInfoNoEdit from '../atoms/edit/MusicInfoNoEdit'
 import SingKeyEdit from '../atoms/edit/SingKeyEdit'
@@ -14,6 +15,7 @@ import { ToastContainer } from 'react-toastify'
 const EditModalForm = () => {
   const { isModalOpen, errorMsg, isLoading, onSubmit, toastContainerOptions } =
     useUpdateSubmit()
+  const { setEditingRecordId } = useSetlists()
 
   return (
     <>
@@ -36,6 +38,7 @@ const EditModalForm = () => {
             MemoForm={<MemoEdit />}
             submitLabel="Save"
             onSubmit={onSubmit}
+            onClose={() => setEditingRecordId(-1)}
           />
           <ToastContainer {...toastContainerOptions} />
         </>
