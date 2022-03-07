@@ -14,6 +14,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/api/ohako/setlist/store', \App\Http\Actions\Ohako\SetlistStoreAction::class);
     Route::post('/api/ohako/setlist/init', \App\Http\Actions\Ohako\SetlistInitAction::class);
     Route::post('/api/ohako/setlist/destroy', \App\Http\Actions\Ohako\SetlistDestroyAction::class);
+    Route::post('/api/ohako/setlist/update', \App\Http\Actions\Ohako\SetlistUpdateAction::class);
 });
 
 Route::get('/{any}', function () {

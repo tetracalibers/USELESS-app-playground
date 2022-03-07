@@ -32,6 +32,27 @@ class SetlistEntity
     return $setlist;
   }
   
+  public function update(Request $request) 
+  {
+    OhakoSetlist::where('id', $request->id)->update([
+      'user_id' => $request->userId,
+      'sing_date' => $request->singDate,
+      'artist_itunes_id' => $request->artistId,
+      'artist_name' => is_null($request->artistName) ? '' : $request->artistName,
+      'song_name' => is_null($request->songName) ? '' : $request->songName,
+      'jacket_image' => is_null($request->jacketImage) ? '' : $request->jacketImage,
+      'sing_key' => $request->singKey,
+      'rating' => $request->rating,
+      'score' => is_null($request->score) ? '' : $request->score,
+      'memo' => is_null($request->memo) ? '' : $request->memo
+    ]);
+    
+    $setlist = OhakoSetlist::find($request->id);
+    $setlist->problems()->sync(request()->problems);
+    
+    return $setlist;
+  }
+  
   public function getAllByUser(Request $request)
   {
     return OhakoSetlist::with('problems')
