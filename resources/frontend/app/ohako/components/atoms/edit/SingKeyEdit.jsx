@@ -1,17 +1,17 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import SingKeyPicker from '../SingKeyPicker'
 
 const SingKeyEdit = () => {
-  const { tmpRecords, editingRecordId, rewriteTmpRecord } = useSetlists()
+  const { rewriteDiff, diff } = useEditDiff()
 
   return (
     <div>
-      {editingRecordId != -1 && (
+      {diff.id != -1 && (
         <SingKeyPicker
           primaryKey="edit"
-          value={tmpRecords[editingRecordId].singKey}
-          setValue={(value) => rewriteTmpRecord('singKey', value)}
+          value={diff.singKey}
+          setValue={(value) => rewriteDiff('singKey', value)}
         />
       )}
     </div>

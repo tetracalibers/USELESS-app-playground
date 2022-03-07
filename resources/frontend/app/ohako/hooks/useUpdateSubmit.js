@@ -1,20 +1,22 @@
 import { useState } from 'react'
 import { useLaravelSanctum } from '../../common/hooks/useLaravelSanctum'
 import { useSetlists } from '../providers/SetlistProvider'
+import { useEditDiff } from '../providers/EditDiffProvider'
 import { useQuery } from 'react-query'
 import { toast, Flip } from 'react-toastify'
 
 export const useUpdateSubmit = () => {
   const [isModalOpen, toggleModalOpen] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
-  const { editingRecord, setInitComplete } = useSetlists()
+  const { setInitComplete } = useSetlists()
   const { api } = useLaravelSanctum()
+  const { diff, resetDiff } = useEditDiff()
 
   const submitFetch = async () => {
     return await api
       .post('/api/ohako/setlist/update', {
         json: {
-          ...editingRecord,
+          ...diff,
         },
       })
       .json()
@@ -30,6 +32,7 @@ export const useUpdateSubmit = () => {
         return
       }
       setErrorMsg('')
+      resetDiff()
       toggleModalOpen(false)
       toast.success('Updated successfully', {
         ...toastOptions,

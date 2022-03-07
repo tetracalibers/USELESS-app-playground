@@ -1,16 +1,16 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import DatePicker from '../../../../common/components/DatePicker'
 
 const SingDateEdit = () => {
-  const { tmpRecords, editingRecordId, rewriteTmpRecord } = useSetlists()
+  const { rewriteDiff, diff } = useEditDiff()
 
   return (
     <div>
-      {editingRecordId != -1 && (
+      {diff.id != -1 && (
         <DatePicker
-          selected={tmpRecords[editingRecordId].singDate}
-          onChange={(date) => rewriteTmpRecord('singDate', date)}
+          selected={diff.singDate}
+          onChange={(date) => rewriteDiff('singDate', date)}
         />
       )}
     </div>

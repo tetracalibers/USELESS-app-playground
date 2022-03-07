@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import ProblemSelector from '../ProblemSelector'
 
 const ProblemsEdit = () => {
-  const { tmpRecords, editingRecordId, rewriteTmpRecord } = useSetlists()
+  const { rewriteDiff, diff } = useEditDiff()
 
   return (
     <div>
-      {editingRecordId != -1 && (
+      {diff.id != -1 && (
         <ProblemSelector
-          value={tmpRecords[editingRecordId].problemsData}
+          value={diff.problemsData}
           setValue={(info) => {
-            rewriteTmpRecord('problemsData', info)
+            rewriteDiff('problemsData', info)
           }}
         />
       )}

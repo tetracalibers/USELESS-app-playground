@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
 import { css } from '@emotion/css'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import { BiUserVoice } from 'react-icons/bi'
 
 const MusicInfoNoEdit = () => {
-  const { editingRecordId, tmpRecords } = useSetlists()
+  const { diff } = useEditDiff()
   const { artistName, songName, jacketImage } =
-    editingRecordId != -1
-      ? tmpRecords[editingRecordId]
-      : { artistName: '', songName: '', jacketImage: '' }
+    diff.id != -1 ? diff : { artistName: '', songName: '', jacketImage: '' }
 
   const css_wrap = css`
     display: grid;

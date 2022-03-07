@@ -122,7 +122,7 @@ const ExcelTable = () => {
           {allRecords.map((record, rowIdx) => (
             <Tr key={rowIdx} className={css_tbody_tr}>
               <Td>
-                <EditButton recordId={record.id} />
+                <EditButton record={record} />
               </Td>
               <Td>{format(record.singDate, 'yyyy/MM/dd')}</Td>
               <Td>{record.artistName}</Td>

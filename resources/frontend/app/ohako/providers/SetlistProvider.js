@@ -20,14 +20,6 @@ const SetlistProvider = ({ children }) => {
   const [allRecords, setAllRecords] = useState([])
   const [allProblems, setAllProblems] = useState([])
   const [initComplete, setInitComplete] = useState(true)
-  const [tmpRecords, rewriteTmpRecords, setTmpRecords, initTmpRecords] =
-    useObjectState(
-      allRecords.reduce((obj, record) => {
-        obj[record.id] = record
-        return obj
-      }, {})
-    )
-  const [editingRecordId, setEditingRecordId] = useState(-1)
 
   const addRecord = (newRecord) => {
     setAllRecords([newRecord, ...allRecords])
@@ -110,12 +102,6 @@ const SetlistProvider = ({ children }) => {
         visibleColumnValuesInitFalse,
         filterConditions,
         setCondition,
-        tmpRecords,
-        setTmpRecords,
-        rewriteTmpRecord,
-        initTmpRecords,
-        editingRecordId,
-        setEditingRecordId,
       }}
     >
       {children}

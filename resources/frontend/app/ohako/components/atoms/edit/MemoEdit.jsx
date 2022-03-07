@@ -1,16 +1,16 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import FlexibleTextarea from '../../../../common/components/FlexibleTextarea'
 
 const MemoEdit = () => {
-  const { tmpRecords, editingRecordId, rewriteTmpRecord } = useSetlists()
+  const { rewriteDiff, diff } = useEditDiff()
 
   return (
     <div>
-      {editingRecordId != -1 && (
+      {diff.id != -1 && (
         <FlexibleTextarea
-          value={tmpRecords[editingRecordId].memo}
-          setValue={(value) => rewriteTmpRecord('memo', value)}
+          value={diff.memo}
+          setValue={(value) => rewriteDiff('memo', value)}
         />
       )}
     </div>

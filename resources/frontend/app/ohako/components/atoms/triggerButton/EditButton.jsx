@@ -1,12 +1,12 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import { ImPencil2 } from 'react-icons/im'
 import { Button } from 'react-materialize'
 import { css } from '@emotion/css'
 import classNames from 'classnames'
 
-const EditButton = ({ recordId }) => {
-  const { setEditingRecordId } = useSetlists()
+const EditButton = ({ record }) => {
+  const { setDiff } = useEditDiff()
 
   const css_wrap = css`
     .btn-flat {
@@ -52,7 +52,7 @@ const EditButton = ({ recordId }) => {
         node="button"
         waves="light"
         onClick={(e) => {
-          setEditingRecordId(recordId)
+          setDiff(record)
         }}
       />
     </div>

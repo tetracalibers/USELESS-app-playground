@@ -1,7 +1,6 @@
 import React from 'react'
-import { useSetlists } from '../../providers/SetlistProvider'
+import { useEditDiff } from '../../providers/EditDiffProvider'
 import { useUpdateSubmit } from '../../hooks/useUpdateSubmit'
-import { useBackup } from '../../hooks/useBackup'
 import MusicInfoNoEdit from '../atoms/edit/MusicInfoNoEdit'
 import SingKeyEdit from '../atoms/edit/SingKeyEdit'
 import MemoEdit from '../atoms/edit/MemoEdit'
@@ -22,9 +21,7 @@ const EditModalForm = () => {
     onSubmit,
     toastContainerOptions,
   } = useUpdateSubmit()
-  const { setEditingRecordId, setTmpRecords, allRecords, setInitComplete } =
-    useSetlists()
-  const { backupData } = useBackup()
+  const { resetDiff } = useEditDiff()
 
   return (
     <>
@@ -48,7 +45,7 @@ const EditModalForm = () => {
             submitLabel="Save"
             onSubmit={onSubmit}
             onClose={() => {
-              setEditingRecordId(-1)
+              resetDiff()
               setErrorMsg('')
             }}
           />

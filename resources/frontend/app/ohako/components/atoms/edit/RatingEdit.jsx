@@ -1,16 +1,16 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useEditDiff } from '../../../providers/EditDiffProvider'
 import Rating from '../../../../common/components/Rating'
 
 const RatingEdit = () => {
-  const { tmpRecords, editingRecordId, rewriteTmpRecord } = useSetlists()
+  const { rewriteDiff, diff } = useEditDiff()
 
   return (
     <div>
-      {editingRecordId != -1 && (
+      {diff.id != -1 && (
         <Rating
-          value={tmpRecords[editingRecordId].rating}
-          onClick={(value) => rewriteTmpRecord('rating', value)}
+          value={diff.rating}
+          onClick={(value) => rewriteDiff('rating', value)}
         />
       )}
     </div>
