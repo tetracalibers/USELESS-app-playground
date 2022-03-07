@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSetlists } from '../../providers/SetlistProvider'
 import { useUpdateSubmit } from '../../hooks/useUpdateSubmit'
+import { useBackup } from '../../hooks/useBackup'
 import MusicInfoNoEdit from '../atoms/edit/MusicInfoNoEdit'
 import SingKeyEdit from '../atoms/edit/SingKeyEdit'
 import MemoEdit from '../atoms/edit/MemoEdit'
@@ -13,9 +14,17 @@ import Loading from '../../../common/components/Loading'
 import { ToastContainer } from 'react-toastify'
 
 const EditModalForm = () => {
-  const { isModalOpen, errorMsg, isLoading, onSubmit, toastContainerOptions } =
-    useUpdateSubmit()
-  const { setEditingRecordId } = useSetlists()
+  const {
+    isModalOpen,
+    errorMsg,
+    setErrorMsg,
+    isLoading,
+    onSubmit,
+    toastContainerOptions,
+  } = useUpdateSubmit()
+  const { setEditingRecordId, setTmpRecords, allRecords, setInitComplete } =
+    useSetlists()
+  const { backupData } = useBackup()
 
   return (
     <>
@@ -38,7 +47,10 @@ const EditModalForm = () => {
             MemoForm={<MemoEdit />}
             submitLabel="Save"
             onSubmit={onSubmit}
-            onClose={() => setEditingRecordId(-1)}
+            onClose={() => {
+              setEditingRecordId(-1)
+              setErrorMsg('')
+            }}
           />
           <ToastContainer {...toastContainerOptions} />
         </>

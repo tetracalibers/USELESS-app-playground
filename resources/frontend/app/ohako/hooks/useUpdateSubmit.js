@@ -82,6 +82,7 @@ export const useUpdateSubmit = () => {
   return {
     isModalOpen,
     errorMsg,
+    setErrorMsg,
     isLoading,
     onSubmit,
     toastContainerOptions,
