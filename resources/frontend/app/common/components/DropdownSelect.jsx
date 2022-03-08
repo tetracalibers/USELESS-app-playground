@@ -13,13 +13,6 @@ const DropdownSelect = ({
   multiple = false,
 }) => {
   const selectRef = useRef(null)
-  const options = optionsArray.reduce((array, optionItemObj, i) => {
-    array[i] = {
-      value: optionItemObj[optionValueKey],
-      label: optionItemObj[optionLabelKey],
-    }
-    return array
-  }, [])
 
   const css_container = css`
     .react-select {

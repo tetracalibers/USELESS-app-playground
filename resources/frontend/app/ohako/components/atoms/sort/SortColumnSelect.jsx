@@ -11,7 +11,9 @@ const SortColumnSelect = () => {
       optionsArray={visibles}
       optionValueKey="dataLabel"
       optionLabelKey="title"
-      onChange={setSortBy}
+      onChange={(value) => {
+        if (value) setSortBy(value.dataLabel)
+      }}
       defaultValue={sortBy}
     />
   )

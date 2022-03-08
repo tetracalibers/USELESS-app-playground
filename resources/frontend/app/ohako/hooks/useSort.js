@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSetlists } from '../providers/SetlistProvider'
+import compareAsc from 'date-fns/compareAsc'
+import compareDesc from 'date-fns/compareDesc'
 
 export const useSort = () => {
   const { allRecords, setAllRecords } = useSetlists()
@@ -8,13 +10,29 @@ export const useSort = () => {
 
   const sortExec = () => {
     let clone = Array.from(allRecords)
-    clone.sort((current, next) => {
-      if (isDesc) {
-        return current[sortBy] > next[sortBy] ? 1 : -1
-      } else {
-        return current[sortBy] < next[sortBy] ? 1 : -1
-      }
-    })
+    console.log(clone)
+    if (sortBy == 'singDate') {
+      clone.sort((current, next) => {
+        console.log(current)
+        console.log(sortBy)
+        if (isDesc) {
+          return compareDesc(current[sortBy], next[sortBy]) ? 1 : -1
+        } else {
+          return compareAsc(current[sortBy], next[sortBy]) ? 1 : -1
+        }
+      })
+    } else {
+      clone.sort((current, next) => {
+        console.log(current)
+        console.log(sortBy)
+        if (isDesc) {
+          return current[sortBy] > next[sortBy] ? 1 : -1
+        } else {
+          return current[sortBy] < next[sortBy] ? 1 : -1
+        }
+      })
+    }
+    console.log(clone)
     setAllRecords(clone)
   }
 
