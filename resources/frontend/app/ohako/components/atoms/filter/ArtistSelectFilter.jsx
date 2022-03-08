@@ -14,7 +14,7 @@ const ArtistSelectFilter = () => {
       onResetCondition('artistName')
       return
     }
-    onStartFiltering(selectedArtist.value, 'artistName')
+    onStartFiltering(selectedArtist.artistName, 'artistName')
   }, [selectedArtist])
 
   return (

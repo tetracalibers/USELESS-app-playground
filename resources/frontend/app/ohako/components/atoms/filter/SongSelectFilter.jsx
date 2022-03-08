@@ -14,7 +14,7 @@ const SongSelectFilter = () => {
       onResetCondition('songName')
       return
     }
-    onStartFiltering(selectedSong.value, 'songName')
+    onStartFiltering(selectedSong.song, 'songName')
   }, [selectedSong])
 
   return (

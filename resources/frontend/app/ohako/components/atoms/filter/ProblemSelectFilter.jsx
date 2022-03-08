@@ -14,7 +14,7 @@ const ProblemSelectFilter = () => {
       onResetCondition('problems')
       return
     }
-    onStartFiltering(selectedProblem.value, 'problems')
+    onStartFiltering(selectedProblem.content, 'problems')
   }, [selectedProblem])
 
   return (

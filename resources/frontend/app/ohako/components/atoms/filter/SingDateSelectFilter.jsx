@@ -14,7 +14,7 @@ const SingDateSelectFilter = () => {
       onResetCondition('singDate')
       return
     }
-    onStartFiltering(selectedSingDate.value, 'singDate')
+    onStartFiltering(selectedSingDate.string, 'singDate')
   }, [selectedSingDate])
 
   return (
