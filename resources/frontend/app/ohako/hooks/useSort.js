@@ -10,21 +10,16 @@ export const useSort = () => {
 
   const sortExec = () => {
     let clone = Array.from(allRecords)
-    console.log(clone)
     if (sortBy == 'singDate') {
       clone.sort((current, next) => {
-        console.log(current)
-        console.log(sortBy)
         if (isDesc) {
-          return compareDesc(current[sortBy], next[sortBy]) ? 1 : -1
+          return compareDesc(current[sortBy], next[sortBy])
         } else {
-          return compareAsc(current[sortBy], next[sortBy]) ? 1 : -1
+          return compareAsc(current[sortBy], next[sortBy])
         }
       })
     } else {
       clone.sort((current, next) => {
-        console.log(current)
-        console.log(sortBy)
         if (isDesc) {
           return current[sortBy] > next[sortBy] ? 1 : -1
         } else {
@@ -32,7 +27,6 @@ export const useSort = () => {
         }
       })
     }
-    console.log(clone)
     setAllRecords(clone)
   }
 
