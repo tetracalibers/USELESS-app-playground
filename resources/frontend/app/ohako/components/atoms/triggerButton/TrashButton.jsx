@@ -111,7 +111,6 @@ const TrashButton = ({ recordId }) => {
   `
 
   const trashHandler = (e) => {
-    const clickedRecordId = e.target.getAttribute('data-record-id')
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
@@ -123,7 +122,7 @@ const TrashButton = ({ recordId }) => {
             <div className={css_confirm_button_wrap}>
               <button
                 onClick={() => {
-                  clicked.current = clickedRecordId
+                  clicked.current = recordId
                   onClose()
                   refetch()
                 }}
