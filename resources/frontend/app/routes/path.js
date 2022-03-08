@@ -3,7 +3,7 @@ const prefix = {
   tpusgAdmin: 'tpusg/cms',
   tetcali: 'tetcali',
   tetcaliAdmin: 'tetcali/cms',
-  karaoke: 'ohakomaker',
+  karaoke: 'sing-history-maker',
 }
 
 export const myPath = {
