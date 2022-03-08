@@ -36,12 +36,16 @@ export const useUpdateSubmit = () => {
         return
       }
       const updatedAllRecords = allRecords.map((obj) =>
-        obj.id == diff.id ? diff : obj
+        obj.id != diff.id
+          ? obj
+          : {
+              ...diff,
+              problems: diff.problemsData.map((obj) => obj.content),
+            }
       )
       setAllRecords(updatedAllRecords)
       setErrorMsg('')
       resetDiff()
-      toggleModalOpen(false)
       toast.success('Updated successfully', {
         ...toastOptions,
       })
