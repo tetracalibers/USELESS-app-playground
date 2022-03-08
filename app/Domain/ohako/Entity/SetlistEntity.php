@@ -35,7 +35,6 @@ class SetlistEntity
   public function update(Request $request) 
   {
     OhakoSetlist::where('id', $request->id)->update([
-      'user_id' => $request->userId,
       'sing_date' => $request->singDate,
       'artist_itunes_id' => $request->artistId,
       'artist_name' => is_null($request->artistName) ? '' : $request->artistName,

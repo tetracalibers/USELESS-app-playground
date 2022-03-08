@@ -8,7 +8,7 @@ import { toast, Flip } from 'react-toastify'
 export const useUpdateSubmit = () => {
   const [isModalOpen, toggleModalOpen] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
-  const { setInitComplete, setAllRecords } = useSetlists()
+  const { setInitComplete, allRecords, setAllRecords } = useSetlists()
   const { api } = useLaravelSanctum()
   const { diff, resetDiff } = useEditDiff()
 
@@ -17,6 +17,10 @@ export const useUpdateSubmit = () => {
       .post('/api/ohako/setlist/update', {
         json: {
           ...diff,
+          singDate: diff.singDate
+            ? diff.singDate.toLocaleDateString('ja-JP')
+            : new Date().toLocaleDateString('ja-JP'),
+          problems: diff.problemsData.map((obj) => obj.id),
         },
       })
       .json()
@@ -31,7 +35,7 @@ export const useUpdateSubmit = () => {
         setError(data.message)
         return
       }
-      const updatedAllRecords = setAllRecords.map((obj) =>
+      const updatedAllRecords = allRecords.map((obj) =>
         obj.id == diff.id ? diff : obj
       )
       setAllRecords(updatedAllRecords)
