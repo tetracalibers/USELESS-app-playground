@@ -1,6 +1,5 @@
 <?php
 declare(strict_types=1);
-// ディレクトリ名変更反映用のコメントです
 
 namespace App\Http\Responders\Ohako;
 
