@@ -1,8 +1,7 @@
 import React from 'react'
-import ExcelTable from '../organisms/ExcelTable'
 
 const Demo = () => {
-  return <ExcelTable />
+  return <div>準備中です</div>
 }
 
 export default Demo
