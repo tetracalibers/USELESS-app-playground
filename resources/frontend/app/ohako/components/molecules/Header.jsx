@@ -13,8 +13,6 @@ const Header = () => {
     background-position: center;
     width: 100vw;
     background-size: cover;
-    height: 100px;
-    z-index: 100;
     font-family: 'Satisfy', cursive;
     height: 100px;
     z-index: 100;
