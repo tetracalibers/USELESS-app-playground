@@ -43,6 +43,7 @@
         "3d-react-carousal": "^4.0.2",
         "date-fns": "^2.28.0",
         "js-cookie": "^3.0.1",
+        "rc-image": "^5.2.5",
         "rc-slider": "^9.7.5",
         "react-burger-menu": "^3.0.6",
         "react-circular-progressbar": "^2.0.4",

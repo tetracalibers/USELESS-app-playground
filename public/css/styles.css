@@ -823,6 +823,10 @@
   font-size: 1.25rem !important;
 }
 
+.rc-image-preview-img {
+  max-width: 90% !important;
+}
+
 body {
   overflow-x: hidden !important;
   overflow-y: visible !important;

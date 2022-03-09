@@ -3,18 +3,15 @@ import { NavLink } from 'react-router-dom'
 import { myPath } from '../../../routes/path'
 import { css } from '@emotion/css'
 import { Parallax } from 'react-parallax'
-import {
-  Card,
-  CardTitle,
-  Collection,
-  CollectionItem,
-  MediaBox,
-} from 'react-materialize'
+import { Card, CardTitle, Collection, CollectionItem } from 'react-materialize'
 import { Carousel } from '3d-react-carousal'
 import Head from '../../../common/components/Head'
+import Image from 'rc-image'
+import { useWindowSize } from '@react-hook/window-size'
 const path = myPath
 
 export default function Top() {
+  const [width, height] = useWindowSize()
   const image_hero = '../images/home/tree.PNG'
   const tetcaliLogo = '../images/home/TetraCalibersCMS.png'
   const tpusgLogo = '../images/home/ReTryPlayingUSG.jpg'
@@ -67,19 +64,7 @@ export default function Top() {
   ]
   const singHistorySlides = useMemo(() => {
     return singHistoryImages.map(({ caption, image }, i) => (
-      <MediaBox
-        key={i}
-        options={{
-          inDuration: 275,
-          onCloseEnd: null,
-          onCloseStart: null,
-          onOpenEnd: null,
-          onOpenStart: null,
-          outDuration: 200,
-        }}
-      >
-        <img src={image} />
-      </MediaBox>
+      <Image src={image} key={i} preview={{ mask: 'Click to Preview' }} />
     ))
   }, [])
 
@@ -137,7 +122,7 @@ export default function Top() {
     font-family: 'Poiret One', cursive;
     color: #2f4353;
     width: 100vw;
-    font-size: 4vw;
+    font-size: ${width < height ? '7vw' : '4vw'};
     text-align: center;
     filter: opacity(0.7) blur(0.5px);
   `
@@ -163,15 +148,6 @@ export default function Top() {
     display: block;
   `
   const css_carousel_wrap = css`
-    .materialboxed {
-      z-index: -1;
-    }
-    .slider-single.active .materialboxed {
-      z-index: 1;
-    }
-    .slider-single.active .material-placeholder {
-      background: white;
-    }
     .react-3d-carousel {
       height: 30vw !important;
       .slider-container {

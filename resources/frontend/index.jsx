@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import 'rc-slider/assets/index.css'
 import 'react-datepicker/dist/react-datepicker.css'
+import 'rc-image/assets/index.css'
 
 const queryClient = new QueryClient()
 
