@@ -3,7 +3,7 @@ import { css } from '@emotion/css'
 
 const Header = () => {
   const image_text_back = '../images/ohako/twinkleColorful.jpg'
-  const image_wrap_back = '../images/ohako/midnight.jpg'
+  const image_wrap_back = '../images/ohako/midnight2.jpg'
 
   const css_wrap = css`
     position: sticky;
