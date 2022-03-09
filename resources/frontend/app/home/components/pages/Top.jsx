@@ -1,27 +1,20 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { NavLink } from 'react-router-dom'
 import { myPath } from '../../../routes/path'
 import { css } from '@emotion/css'
-import { useWindowSize } from '@react-hook/window-size'
-import { Parallax, Background } from 'react-parallax'
+import { Parallax } from 'react-parallax'
 import {
   Card,
   CardTitle,
   Collection,
   CollectionItem,
-  Slide,
-  Slider,
-  Caption,
-  Carousel,
   MediaBox,
 } from 'react-materialize'
+import { Carousel } from '3d-react-carousal'
 import Head from '../../../common/components/Head'
-import classNames from 'classnames'
 const path = myPath
 
 export default function Top() {
-  const [width, height] = useWindowSize()
-
   const image_hero = '../images/home/tree.PNG'
   const tetcaliLogo = '../images/home/TetraCalibersCMS.png'
   const tpusgLogo = '../images/home/ReTryPlayingUSG.jpg'
@@ -72,6 +65,23 @@ export default function Top() {
       image: '../images/home/singHistoryMaker/sing-history-delete-PC.png',
     },
   ]
+  const singHistorySlides = useMemo(() => {
+    return singHistoryImages.map(({ caption, image }, i) => (
+      <MediaBox
+        key={i}
+        options={{
+          inDuration: 275,
+          onCloseEnd: null,
+          onCloseStart: null,
+          onOpenEnd: null,
+          onOpenStart: null,
+          outDuration: 200,
+        }}
+      >
+        <img src={image} />
+      </MediaBox>
+    ))
+  }, [])
 
   const css_wrap = css`
     font-family: 'TsukushiBMaruGothic';
@@ -152,9 +162,49 @@ export default function Top() {
     text-align: right;
     display: block;
   `
-  const css_carousel_content = css`
-    img {
-      height: auto;
+  const css_carousel_wrap = css`
+    .materialboxed {
+      z-index: -1;
+    }
+    .slider-single.active .materialboxed {
+      z-index: 1;
+    }
+    .slider-single.active .material-placeholder {
+      background: white;
+    }
+    .react-3d-carousel {
+      height: 30vw !important;
+      .slider-container {
+        position: absolute;
+        left: 50%;
+        top: 0%;
+        height: 100%;
+        width: 100%;
+        margin: 0px auto 0px -50%;
+        .slider-right,
+        .slider-left {
+          z-index: 0;
+          div {
+            margin-top: 0;
+          }
+        }
+        .slider-content {
+          position: relative;
+          left: 50%;
+          top: 50%;
+          width: 70%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          .slider-single .slider-single-content {
+            width: 100%;
+            height: auto;
+            img {
+              width: auto;
+              height: auto;
+            }
+          }
+        }
+      }
     }
   `
 
@@ -269,19 +319,12 @@ export default function Top() {
             }
           >
             <Collection className={css_card_ul}>
-              <CollectionItem>
+              <CollectionItem className={css_carousel_wrap}>
                 <Carousel
-                  options={{
-                    indicators: true,
-                    centerImages: true,
-                  }}
-                >
-                  {singHistoryImages.map(({ caption, image }, i) => (
-                    <div key={i} className={css_carousel_content}>
-                      <img src={image} />
-                    </div>
-                  ))}
-                </Carousel>
+                  slides={singHistorySlides}
+                  autoplay={false}
+                  interval={1000}
+                />
               </CollectionItem>
               <CollectionItem>
                 <NavLink to={`${path.this.Auth}`}>

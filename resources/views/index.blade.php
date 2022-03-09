@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('css/materialize-icon.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/skeleton.css') }}">
     <link rel="stylesheet" href=" {{ mix('css/styles.css') }}">
+    <!-- 3d-react-carousal用アイコン -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="{{ mix('js/index.js') }}" defer="defer"></script>
 </head>
 <body>
