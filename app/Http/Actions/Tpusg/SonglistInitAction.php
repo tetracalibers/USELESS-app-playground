@@ -5,10 +5,10 @@ namespace App\Http\Actions\Tpusg;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Domain\Tpusg\Song as Domain;
-use App\Http\Responders\Tpusg\SongIndexResponder as Responder;
+use App\Domain\Tpusg\Service\SonglistInitUsecase as Domain;
+use App\Http\Responders\Tpusg\SonglistInitResponder as Responder;
 
-class SongIndexAction extends Controller
+class SonglistInitAction extends Controller
 {
     protected $Domain;
     protected $Responder;
@@ -22,7 +22,7 @@ class SongIndexAction extends Controller
     public function __invoke(Request $request)
     {
         return $this->Responder->response(
-            $this->Domain->getAll()
+            $this->Domain->init()
         );
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/api/tpusg/songlist', \App\Http\Actions\Tpusg\SongIndexAction::class);
+Route::get('/api/tpusg/songlist', \App\Http\Actions\Tpusg\SonglistInitAction::class);
 
 Route::post('/api/auth/login', \App\Http\Actions\User\UserLoginAction::class);
 Route::post('/api/auth/regist', \App\Http\Actions\User\UserRegistAction::class);

@@ -6,7 +6,7 @@ namespace App\Http\Responders\Tpusg;
 
 use Illuminate\Http\Response;
 
-class SongIndexResponder
+class SonglistInitResponder
 {
     protected $response;
 

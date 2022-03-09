@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Domain\Tpusg;
+namespace App\Domain\Tpusg\Entity;
 
 use App\Models\USGsong;
 
-class Song
+class SongEntity
 {
     public function getAll()
     {
