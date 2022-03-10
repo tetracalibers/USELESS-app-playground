@@ -1,64 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+[![playground-top](public/images/home/playground-top.png)](https://useless-app-playground.herokuapp.com/)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[USELESS-app-playground](https://useless-app-playground.herokuapp.com/)では、いろいろなデモプロジェクトを試運転しています。
 
-## About Laravel
+『ガラクタ（USELESS）でもとりあえず誇る』が運営ポリシーです。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 構成
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- 【バックエンド】Laravel（API）
+- 【フロントエンド】React（SPA）
+- 【デプロイ・運用】heroku
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# β版リリース
 
-## Learning Laravel
+## Sing-History Maker
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+[![sing-history-top](public/images/home/singHistoryMaker/sing-history-top-PC.png)](https://useless-app-playground.herokuapp.com/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+高校生活最後に慌てて作った自己分析管理アプリです。
 
-## Laravel Sponsors
+今は歌唱練習記録に特化していますが、今後、スキルや経歴管理などの業務向けverや、ジャンル問わずさまざまな目標達成までの道のりを記録できる汎用性の高いアプリに発展させていきたいと考えています。
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ソースコードは、本リポジトリの
+- [app/ohako](/app/ohako)
+- [resouce/frontend/app/ohako](/resouce/frontend/app/ohako)
 
-### Premium Partners
+などのディレクトリに配置されています。
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### 構成
 
-## Contributing
+- 【バックエンド】Laravel
+- 【フロントエンド】React
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 正式リリース
 
-## Code of Conduct
+## Try Playing USG
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+[![tpusg-motive](public/images/home/ReTryPlayingUSG-motive.jpg)](https://try-playing-usg.kuron.jp/)
 
-## Security Vulnerabilities
+プログラミング歴4ヶ月の頃に作ったバンドマン交流BBSサイトです。
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+[運用中の本番サイト](https://try-playing-usg.kuron.jp/)とは別に、[USELESS-app-playground](https://useless-app-playground.herokuapp.com/)ではリメイク版をぼちぼち作って公開しています。
 
-## License
+リメイク版のソースコードは、本リポジトリの
+- [app/tpusg](/app/tpusg)
+- [resouce/frontend/app/tpusg](/resouce/frontend/app/tpusg)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+などのディレクトリに配置されています。
+
+また、共同執筆者募集の一環（と自らのポートフォリオ）として、管理画面のデモも近日公開予定です。
+
+### 構成
+
+- 本番運用中のサイト
+    - WordPressオリジナルテーマとして制作
+  - BBS機能は要件の都合上、既存のプラグインを使わずフルスクラッチPHPで自作
+  - 【フロントエンド】jQuery
+  - 【デプロイ】FTP
+  - 【運用】レンタルサーバーで運用
+
+- リメイク版デモ
+  - 【バックエンド】Laravel
+  - 【フロントエンド】React
+
+## TetraCalibersCMS
+
+[![tetcali-top](public/images/home/TetraCalibersCMS-top-short.jpg)](https://tetracalibers.net/)
+
+プログラミング歴10ヶ月の頃に作った自分用CMSです。
+
+プログラミングTipsブログや、理系学生向けのコンテンツを掲載しています。
+
+管理画面のデモも近日公開予定です。
+
+### 構成
+
+- 【バックエンド】Laravel
+- 【フロントエンド】
+  - サイト側：jQuery
+  - 管理画面側：Vue
+- 【デプロイ】VPS
+- 【運用】VPS上に構築したkUSANAGI環境
