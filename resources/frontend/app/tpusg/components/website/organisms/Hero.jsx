@@ -7,6 +7,7 @@ const Hero = () => {
   const image_hero = '../images/tpusg/starlight.jpeg'
   const css_back = css`
     filter: blur(2px) opacity(0.7);
+    transform: translateZ(0);
   `
   const css_hero = css`
     height: 100vh;

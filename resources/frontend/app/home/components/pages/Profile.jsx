@@ -70,6 +70,7 @@ const Profile = () => {
   const css_user_thumbnail = css`
     width: 10rem;
     filter: blur(0.35px);
+    transform: translateZ(0);
     border-radius: 50%;
   `
   const css_user_name = css`
@@ -81,6 +82,7 @@ const Profile = () => {
     background-color: #5b6467;
     background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
     filter: blur(0.25px) drop-shadow(-2px -2px 6px #ffffff) drop-shadow(2px 2px 6px white);
+    transform: translateZ(0);
     margin: 0;
 }
   `

@@ -35,6 +35,7 @@ const Rating = ({ value, onClick, max = 5 }) => {
     &.active svg {
       fill: #ebf928;
       filter: drop-shadow(0px 0px 6px ivory);
+      transform: translateZ(0);
     }
   `
 

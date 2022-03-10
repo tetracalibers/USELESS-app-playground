@@ -97,6 +97,7 @@ export default function Top() {
   const css_card = css`
     width: 80vw;
     filter: opacity(0.8);
+    transform: translateZ(0);
   `
   const css_card_group = css`
     display: grid;
@@ -113,6 +114,7 @@ export default function Top() {
       color: black;
       background: #20202050;
       filter: drop-shadow(2px 4px 6px white);
+      transform: translateZ(0);
     }
     img {
       height: auto;
@@ -125,6 +127,7 @@ export default function Top() {
     font-size: ${width < height ? '7vw' : '4vw'};
     text-align: center;
     filter: opacity(0.7) blur(0.5px);
+    transform: translateZ(0);
   `
   const css_title_wrap = css`
     position: absolute;

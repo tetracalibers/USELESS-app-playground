@@ -30,6 +30,7 @@ const Auth = () => {
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     filter: opacity(0.925);
+    transform: translateZ(0);
     font-family: 'Poiret One';
     width: 80vw;
     input:not([type]),

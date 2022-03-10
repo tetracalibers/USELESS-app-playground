@@ -44,6 +44,7 @@ const AddButton = () => {
       top: -0.35em;
       color: #ffffff80;
       filter: drop-shadow(1px 1px 10px white);
+      transform: translateZ(0);
     }
   `
 

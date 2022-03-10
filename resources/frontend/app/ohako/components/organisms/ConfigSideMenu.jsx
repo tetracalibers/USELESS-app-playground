@@ -14,6 +14,7 @@ const menuStyles = {
     left: '25px',
     top: '25px',
     filter: 'opacity(0.5) blur(.5px) invert(1) drop-shadow(0px 0px 6px ivory)',
+    transform: 'translateZ(0)',
   },
   bmBurgerBars: {
     background: '#373a47',
