@@ -21,8 +21,10 @@ const GlassCardLink = ({
     border-radius: 50px !important;
     width: fit-content;
     filter: drop-shadow(0px 0px 10px #d7e1ec80);
+    transform: translateZ(0);
     &:hover {
-      filter: drop-shadow(0px 0px 50px #ffffff) opacity(.7);
+      filter: drop-shadow(0px 0px 50px #ffffff) opacity(0.7);
+      transform: translateZ(0);
     }
   `
   const css_item_link = css`
@@ -30,6 +32,7 @@ const GlassCardLink = ({
     font-size: 1.5rem;
     font-family: 'TsukushiBMaruGothic';
     filter: brightness(0.5);
+    transform: translateZ(0);
   `
 
   return (

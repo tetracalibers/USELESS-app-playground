@@ -1,6 +1,5 @@
-<?xml version="1.0"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <style>
       <![CDATA[
@@ -84,61 +83,61 @@
   </defs>
   <circle cx="65" cy="60.5" r="44" transform="scale(4)" fill="none" />
   <g transform="scale(4)" style="filter: url(#my_filter);">
-    <use transform="rotate(30, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(60, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(120, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(150, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(240, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(300, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(330, 65, 60.5)" href="#clock_scale_big" />
-    <use transform="rotate(6, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(12, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(18, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(24, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(36, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(42, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(48, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(54, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(66, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(72, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(78, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(84, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(96, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(102, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(108, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(114, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(126, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(132, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(138, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(144, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(156, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(162, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(168, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(174, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(186, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(192, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(198, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(204, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(216, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(222, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(228, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(234, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(246, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(252, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(258, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(264, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(276, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(282, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(288, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(294, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(306, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(312, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(318, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(324, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(336, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(342, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(348, 65, 60.5)" href="#clock_scale_small" />
-    <use transform="rotate(354, 65, 60.5)" href="#clock_scale_small" />
+    <use transform="rotate(30, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(60, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(120, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(150, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(240, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(300, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(330, 65, 60.5)" xlink:href="#clock_scale_big" />
+    <use transform="rotate(6, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(12, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(18, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(24, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(36, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(42, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(48, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(54, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(66, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(72, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(78, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(84, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(96, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(102, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(108, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(114, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(126, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(132, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(138, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(144, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(156, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(162, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(168, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(174, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(186, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(192, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(198, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(204, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(216, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(222, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(228, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(234, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(246, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(252, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(258, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(264, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(276, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(282, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(288, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(294, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(306, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(312, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(318, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(324, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(336, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(342, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(348, 65, 60.5)" xlink:href="#clock_scale_small" />
+    <use transform="rotate(354, 65, 60.5)" xlink:href="#clock_scale_small" />
     <text x="62.5" y="64" transform="translate(37, 0)" id="clock_number">3</text>
     <text x="61" y="63.5" transform="translate(0, -37)" id="clock_number">12</text>
     <text x="62.5" y="64" transform="translate(-37, 0)" id="clock_number">9</text>
@@ -149,7 +148,7 @@
     <line x1="65" x2="65" y1="60.5" y2="30" transform="rotate(144, 65, 60.5)" id="clock_long_hand" />
     <line x1="65" x2="65" y1="60.5" y2="80" transform="rotate(42, 65, 60.5)" id="clock_short_hand" />
     <text id="site_name" style="filter: url(#blur);">
-      <textPath href="#circle">
+      <textPath xlink:href="#circle">
         Try Playing UNISON SQUARE GARDEN
       </textPath>
     </text>

@@ -80,6 +80,7 @@ const ModalForm = ({
         rgba(255, 255, 255, 0) 100%
       );
       filter: contrast(0.75);
+      transform: translateZ(0);
     }
     .collection .collection-item.avatar {
       min-height: 0;

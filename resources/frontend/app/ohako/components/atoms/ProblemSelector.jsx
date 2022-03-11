@@ -36,6 +36,7 @@ const ProblemSelector = ({ value, setValue }) => {
         background-color: inherit;
         background-image: inherit;
         filter: drop-shadow(0 0 10px ivory);
+        transform: translateZ(0);
         box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
       }
     }
@@ -47,7 +48,7 @@ const ProblemSelector = ({ value, setValue }) => {
       }
     }
     ${allProblems.map((_, idx) =>
-      [...Array(6)].map(
+      [...Array(20)].map(
         (_, i) =>
           `#react-select-${i}-option-${idx} {
           background-image: linear-gradient(

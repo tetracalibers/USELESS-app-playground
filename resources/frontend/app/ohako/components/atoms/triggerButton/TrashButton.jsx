@@ -108,6 +108,7 @@ const TrashButton = ({ recordId }) => {
     height: auto;
     color: rgba(75, 115, 180, 1);
     filter: brightness(0.5);
+    transform: translateZ(0);
   `
 
   const trashHandler = (e) => {
@@ -144,6 +145,7 @@ const TrashButton = ({ recordId }) => {
     .btn-floating:hover {
       background: none;
       filter: brightness(0.5);
+      transform: translateZ(0);
     }
   `
   const css_button = css`

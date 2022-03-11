@@ -15,6 +15,7 @@ const EditButton = ({ record }) => {
     .btn-floating:hover {
       background: none;
       filter: brightness(0.5);
+      transform: translateZ(0);
     }
   `
   const css_button = css`

@@ -21,6 +21,7 @@ const TwoWaySwitchButton = ({
       }
       &:active:not(.react-toggle--disabled) .react-toggle-thumb {
         filter: drop-shadow(-1px -1px 10px white);
+        transform: translateZ(0);
         box-shadow: inherit;
       }
       &--checked .react-toggle-track {

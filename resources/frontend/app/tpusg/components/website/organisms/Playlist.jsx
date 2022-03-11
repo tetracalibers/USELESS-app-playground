@@ -50,6 +50,7 @@ export default function PlayListContainer() {
     background-position: bottom;
     background-repeat: repeat-x;
     filter: opacity(0.9) blur(1px);
+    transform: translateZ(0);
   `
 
   return (

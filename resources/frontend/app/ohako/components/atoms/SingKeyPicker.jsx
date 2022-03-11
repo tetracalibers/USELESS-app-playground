@@ -55,6 +55,7 @@ const SingKeyPicker = ({ primaryKey, value, onClick }) => {
   `
   const css_wrap = css`
     filter: blur(0.25px) opacity(0.75);
+    transform: translateZ(0);
     padding-bottom: 1rem;
     text-align: center;
     display: grid;
