@@ -355,7 +355,8 @@ const MusicSuggestForm = () => {
               onCompositionEnd={(e) => startFilteringArtists(e)}
               onInput={(e) => startFilteringArtists(e)}
               placeholder="search artists"
-              onFocus={(e) => startSuggestingArtists()}
+              onFocus={() => startSuggestingArtists()}
+              onTouchEnd={() => startSuggestingArtists()}
               icon={
                 artistInputValue.length > 0 ? (
                   <TiTimesOutline onClick={(e) => artistInputClear(e)} />
@@ -411,7 +412,8 @@ const MusicSuggestForm = () => {
               }}
               onCompositionEnd={(e) => startFilteringSongs(e)}
               onInput={(e) => startFilteringSongs(e)}
-              onFocus={(e) => restartSuggestingSongs()}
+              onFocus={() => restartSuggestingSongs()}
+              onTouchEnd={() => restartSuggestingSongs()}
               icon={
                 songInputValue.length > 0 ? (
                   <TiTimesOutline onClick={(e) => songInputClear(e)} />
