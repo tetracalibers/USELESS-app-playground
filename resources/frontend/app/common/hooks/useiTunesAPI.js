@@ -18,7 +18,11 @@ export const useiTunesAPI = ({
 
   const iTunesAPIfetch = async () => {
     let response = await fetchJsonp(
-      `https://itunes.apple.com/${mode}?lang=${lang}&media=${media}&entity=${entity}&country=${country}&term=${term}&limit=${limit}&attribute=${attribute}&sort=${sort}${optionsParam}`
+      `https://itunes.apple.com/${mode}?lang=${lang}&entity=${entity}&country=${country}${
+        mode == 'search'
+          ? `&term=${term}&attribute=${attribute}&media=${media}`
+          : ''
+      }&limit=${limit}&sort=${sort}${optionsParam}`
     )
     return response.json()
   }

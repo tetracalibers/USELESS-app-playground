@@ -9,7 +9,6 @@ import { useiTunesAPI } from '../../../common/hooks/useiTunesAPI'
 import { BiUserVoice } from 'react-icons/bi'
 import Skeleton from 'react-loading-skeleton'
 import { css } from '@emotion/css'
-import { isMobile } from 'react-device-detect'
 
 const MusicSuggestForm = () => {
   const {
