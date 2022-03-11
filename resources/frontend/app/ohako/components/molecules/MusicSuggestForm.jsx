@@ -9,6 +9,7 @@ import { useiTunesAPI } from '../../../common/hooks/useiTunesAPI'
 import { BiUserVoice } from 'react-icons/bi'
 import Skeleton from 'react-loading-skeleton'
 import { css } from '@emotion/css'
+import { isMobile } from 'react-device-detect'
 
 const MusicSuggestForm = () => {
   const {
@@ -317,7 +318,7 @@ const MusicSuggestForm = () => {
     _artistGlobalStateReset()
   }
 
-  /* -------------------------------------------------------------------------- */
+  /* View & Styling ----------------------------------------------------------- */
 
   const color_pastel = [
     'rgba(227, 163, 171, .3)',
@@ -346,7 +347,11 @@ const MusicSuggestForm = () => {
             </div>
             <TextInput
               value={artistInputValue}
-              onChange={(e) => startFilteringArtists(e)}
+              onChange={(e) => {
+                if (isMobile) return
+                startFilteringArtists(e)
+              }}
+              onComposition={(e) => tartFilteringArtists(e)}
               placeholder="search artists"
               onFocus={(e) => startSuggestingArtists()}
               icon={
@@ -398,7 +403,11 @@ const MusicSuggestForm = () => {
             )}
             <TextInput
               value={songInputValue}
-              onChange={(e) => startFilteringSongs(e)}
+              onChange={(e) => {
+                if (isMobile) return
+                startFilteringSongs(e)
+              }}
+              onComposition={(e) => startFilteringSongs(e)}
               onFocus={(e) => restartSuggestingSongs()}
               icon={
                 songInputValue.length > 0 ? (

@@ -49,6 +49,7 @@
         "react-circular-progressbar": "^2.0.4",
         "react-confirm-alert": "^2.8.0",
         "react-datepicker": "^4.6.0",
+        "react-device-detect": "^2.1.2",
         "react-loading-skeleton": "^3.0.3",
         "react-select": "^5.2.2",
         "react-super-responsive-table": "^5.2.0",
