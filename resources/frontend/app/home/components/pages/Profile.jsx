@@ -116,7 +116,7 @@ const Profile = () => {
               <div>{userInfo.profile}</div>
               <div className={css_item_wrap}>
                 <GlassCardLink
-                  linkTitle="カラオケ記録帳"
+                  linkTitle="Sing-History Maker"
                   link={`../../${myPath.karaoke.admin.Top(userInfo.id)}`}
                 />
                 <ToTpusgAdminLink authority_id={userInfo.authority_id} />
