@@ -1,10 +1,14 @@
 import React from 'react'
-import { pushRotate as Menu } from 'react-burger-menu'
+import {
+  pushRotate as MenuDefault,
+  push as MenuForOld,
+} from 'react-burger-menu'
 import FilterConfigForm from '../molecules/FilterConfigForm'
 import SortConfigForm from '../molecules/SortConfigForm'
 import { GiLightSabers } from 'react-icons/gi'
 import { GrSettingsOption } from 'react-icons/gr'
 import { css } from '@emotion/css'
+import { isSafari, isIOS } from 'react-device-detect'
 
 const menuStyles = {
   bmBurgerButton: {
@@ -76,18 +80,35 @@ const ConfigSideMenu = () => {
   `
 
   return (
-    <Menu
-      outerContainerId={'outerContainer-forReactBurgerMenu'}
-      pageWrapId={'pageWrap-forReactBurgerMenu'}
-      customBurgerIcon={<GrSettingsOption />}
-      customCrossIcon={<GiLightSabers />}
-      disableAutoFocus
-      styles={menuStyles}
-      className={css_memu}
-    >
-      <FilterConfigForm />
-      <SortConfigForm />
-    </Menu>
+    <>
+      {isSafari || isIOS ? (
+        <MenuForOld
+          outerContainerId={'outerContainer-forReactBurgerMenu'}
+          pageWrapId={'pageWrap-forReactBurgerMenu'}
+          customBurgerIcon={<GrSettingsOption />}
+          customCrossIcon={<GiLightSabers />}
+          disableAutoFocus
+          styles={menuStyles}
+          className={css_memu}
+        >
+          <FilterConfigForm />
+          <SortConfigForm />
+        </MenuForOld>
+      ) : (
+        <MenuDefault
+          outerContainerId={'outerContainer-forReactBurgerMenu'}
+          pageWrapId={'pageWrap-forReactBurgerMenu'}
+          customBurgerIcon={<GrSettingsOption />}
+          customCrossIcon={<GiLightSabers />}
+          disableAutoFocus
+          styles={menuStyles}
+          className={css_memu}
+        >
+          <FilterConfigForm />
+          <SortConfigForm />
+        </MenuDefault>
+      )}
+    </>
   )
 }
 
