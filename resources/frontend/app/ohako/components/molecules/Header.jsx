@@ -25,11 +25,12 @@ const Header = () => {
     display: block;
     text-align: center;
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)) blur(0.5px);
+    transform: translateZ(0);
     @media (max-width: 40em) {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate3d(-50%, -50%, 0);
       font-size: 8vw;
     }
   `
