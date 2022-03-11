@@ -26,6 +26,7 @@ const ExcelTable = () => {
       ),
       url(../images/ohako/twinkleBack.jpg);
     background-blend-mode: screen;
+    background-size: cover;
     .responsiveTable tbody tr {
       margin: 1em;
       border-radius: 2rem;
