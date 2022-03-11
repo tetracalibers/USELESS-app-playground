@@ -1,4 +1,4 @@
-import ky from 'ky'
+import fetchJsonp from 'fetch-jsonp'
 
 export const useiTunesAPI = ({
   mode = 'search',
@@ -17,11 +17,10 @@ export const useiTunesAPI = ({
   )
 
   const iTunesAPIfetch = async () => {
-    return await ky
-      .get(
-        `https://itunes.apple.com/${mode}?lang=${lang}&media=${media}&entity=${entity}&country=${country}&term=${term}&limit=${limit}&attribute=${attribute}&sort=${sort}${optionsParam}`
-      )
-      .json()
+    let response = await fetchJsonp(
+      `https://itunes.apple.com/${mode}?lang=${lang}&media=${media}&entity=${entity}&country=${country}&term=${term}&limit=${limit}&attribute=${attribute}&sort=${sort}${optionsParam}`
+    )
+    return response.json()
   }
 
   return { iTunesAPIfetch }
