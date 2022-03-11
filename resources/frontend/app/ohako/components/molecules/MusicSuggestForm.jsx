@@ -352,7 +352,8 @@ const MusicSuggestForm = () => {
                 if (isMobile) return
                 startFilteringArtists(e)
               }}
-              onCompositionEnd={(e) => tartFilteringArtists(e)}
+              onCompositionEnd={(e) => startFilteringArtists(e)}
+              onInput={(e) => startFilteringArtists(e)}
               placeholder="search artists"
               onFocus={(e) => startSuggestingArtists()}
               icon={
@@ -409,6 +410,7 @@ const MusicSuggestForm = () => {
                 startFilteringSongs(e)
               }}
               onCompositionEnd={(e) => startFilteringSongs(e)}
+              onInput={(e) => startFilteringSongs(e)}
               onFocus={(e) => restartSuggestingSongs()}
               icon={
                 songInputValue.length > 0 ? (
