@@ -4,7 +4,6 @@ export const useiTunesAPI = ({
   mode = 'search',
   country = 'jp',
   lang = 'ja_jp',
-  media = 'music',
   entity,
   attribute,
   term,
@@ -20,9 +19,9 @@ export const useiTunesAPI = ({
     let response = await fetchJsonp(
       `https://itunes.apple.com/${mode}?lang=${lang}&entity=${entity}&country=${country}${
         mode == 'search'
-          ? `&term=${term}&attribute=${attribute}&media=${media}`
-          : ''
-      }&limit=${limit}&sort=${sort}${optionsParam}`
+          ? `&term=${term}&attribute=${attribute}`
+          : `&sort=${sort}`
+      }&limit=${limit}${optionsParam}`
     )
     return response.json()
   }
