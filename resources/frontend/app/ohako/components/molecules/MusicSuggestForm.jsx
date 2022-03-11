@@ -42,6 +42,13 @@ const MusicSuggestForm = () => {
   const [visibleSongSuggest, setVisibleSongSuggest] = useState(false)
   const [isSuggestSongFromFetch, setIsSuggestSongFromFetch] = useState(false)
 
+  /* 全角入力開始と終了を検知 ------------------------------------------------------------- */
+
+  const [isZenkaku, setIsZenkaku] = useState(false)
+
+  const zenkakuStart = () => setIsZenkaku(true)
+  const zenkakuEnd = () => setIsZenkaku(false)
+
   /* Phase - rerender after send error ---------------------------------------- */
 
   useEffect(() => {
@@ -77,7 +84,15 @@ const MusicSuggestForm = () => {
   const startFilteringArtists = (e) => {
     const conditionWord = e.target.value
     setArtistInputValue(conditionWord)
-    conditionWord.length > 0 && setMatchArtists(_filteredArtists(conditionWord))
+    if (conditionWord.length > 0 && !isZenkaku) {
+      setMatchArtists(_filteredArtists(conditionWord))
+    }
+  }
+
+  const zenkakuEndInArtist = (t) => {
+    console.log(t.data)
+    zenkakuEnd()
+    setMatchArtists(_filteredArtists(t.data))
   }
 
   /* util - for - fetchingSongsFromAPI ---------------------------------------- */
@@ -220,7 +235,9 @@ const MusicSuggestForm = () => {
   const startFilteringSongs = (e) => {
     const conditionWord = e.target.value
     setSongInputValue(conditionWord)
-    conditionWord.length > 0 && setMatchSongs(_filteredSongs(conditionWord))
+    if (conditionWord.length > 0) {
+      setMatchSongs(_filteredSongs(conditionWord))
+    }
   }
 
   /* Phase - songToBeConfirmed ------------------------------------------------ */
@@ -348,12 +365,9 @@ const MusicSuggestForm = () => {
             </div>
             <TextInput
               value={artistInputValue}
-              onChange={(e) => {
-                if (isMobile) return
-                startFilteringArtists(e)
-              }}
-              onCompositionEnd={(e) => startFilteringArtists(e)}
-              onInput={(e) => startFilteringArtists(e)}
+              onChange={(e) => startFilteringArtists(e)}
+              onCompositionStart={() => zenkakuStart()}
+              onCompositionEnd={(data) => zenkakuEndInArtist(data)}
               placeholder="search artists"
               onFocus={() => startSuggestingArtists()}
               onTouchEnd={() => startSuggestingArtists()}
@@ -406,12 +420,7 @@ const MusicSuggestForm = () => {
             )}
             <TextInput
               value={songInputValue}
-              onChange={(e) => {
-                if (isMobile) return
-                startFilteringSongs(e)
-              }}
-              onCompositionEnd={(e) => startFilteringSongs(e)}
-              onInput={(e) => startFilteringSongs(e)}
+              onChange={(e) => startFilteringSongs(e)}
               onFocus={() => restartSuggestingSongs()}
               onTouchEnd={() => restartSuggestingSongs()}
               icon={
