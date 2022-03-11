@@ -25,12 +25,11 @@ const Auth = () => {
     margin: 0 10vw !important;
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate3d(0, -50%, 0);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     filter: opacity(0.925);
-    transform: translateZ(0);
     font-family: 'Poiret One';
     width: 80vw;
     input:not([type]),
