@@ -38,6 +38,11 @@ const ExcelTable = () => {
           rgb(10 37 64 / 35%) 0px -2px 6px 0px inset;
       }
     }
+    @media screen and (max-width: 40em) {
+      .responsiveTable td.pivoted {
+        min-height: 4rem;
+      }
+    }
     .btn-flat:focus {
       background-color: inherit;
     }
@@ -52,6 +57,9 @@ const ExcelTable = () => {
       ),
       url('${image_back}');
     background-size: cover;
+    td {
+      text-align: center;
+    }
     @media (max-width: 40em) {
       background-image: linear-gradient(
           88deg,
