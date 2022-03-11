@@ -69,7 +69,9 @@ const MusicSuggestForm = () => {
   /* Phase - suggestingArtistsFromLogs ---------------------------------------- */
 
   const startSuggestingArtists = () => {
-    setVisibleArtistSuggest(true)
+    if (!artistSettled) {
+      setVisibleArtistSuggest(true)
+    }
   }
 
   /* Phase - filteringArtistsLog ---------------------------------------------- */
