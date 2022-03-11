@@ -1,3 +1,25 @@
+# History Maker
+
+***夢を追う人のための自主練習・課題・目標→→成長の記録帳***
+
+- 第1弾：歌手志望編 〜**Sing-History Maker**〜
+  - Status
+    - β版テスト運用中
+  - Release log
+    - β版公開：2022/3/9
+  - 今後の増設予定機能
+    - 録音音源の管理 etc.
+- 第2弾：エンジニア志望編 〜**Programming-History Maker**〜
+  - Status
+    - 制作中
+  - 予定機能
+    - 言語・ツール別の学習記録
+    - 小さな学びを記録するダッシュボード
+    - ポートフォリオや個人開発記録
+    - 経歴書としてエクスポート
+    - ポートフォリオサイトとの連携 etc.
+- 第∞弾：あらゆるジャンルの目標管理用にカスタマイズ可能に
+
 # Sing-History Maker
 
 [![sing-history-top](../../../../public/images/home/singHistoryMaker/sing-history-top-PC.png)](https://useless-app-playground.herokuapp.com/)
