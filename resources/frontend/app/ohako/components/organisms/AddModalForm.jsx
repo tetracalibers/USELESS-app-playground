@@ -77,6 +77,7 @@ const AddModalForm = () => {
         rating: singRate,
         score: singScore,
         memo: singMemo,
+        problemsData: singProblem,
         problems: singProblem.map((obj) => obj.content),
         registDate: parseISO(data.created_at),
       })
