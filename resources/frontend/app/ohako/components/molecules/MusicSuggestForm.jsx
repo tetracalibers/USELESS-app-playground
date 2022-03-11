@@ -113,6 +113,7 @@ const MusicSuggestForm = () => {
           }
         )
         setFetchedSongs(songs)
+        setMatchSongs(songs)
       },
       onError: (err) => console.log(err),
     }
