@@ -1,16 +1,17 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useAddTmp } from '../../../providers/AddTmpProvider'
 import SingKeyPicker from '../SingKeyPicker'
 
 const SingKeyInput = ({ rowId }) => {
-  const { singKey, setKey } = useSetlists()
+  const { addTmpRecord, writeAddTmpData } = useAddTmp()
+  const { singKey } = addTmpRecord
 
   return (
     <div>
       <SingKeyPicker
         primaryKey={rowId}
         value={singKey}
-        onClick={(value) => setKey(value)}
+        onClick={(value) => writeAddTmpData('singKey', value)}
       />
     </div>
   )

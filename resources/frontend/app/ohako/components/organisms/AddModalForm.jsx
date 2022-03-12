@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSetlists } from '../../providers/SetlistProvider'
+import { useAddTmp } from '../../providers/AddTmpProvider'
 import { useLatest } from '../../hooks/useLatest'
 import { useQuery } from 'react-query'
 import { useLaravelSanctum } from '../../../common/hooks/useLaravelSanctum'
@@ -17,49 +18,24 @@ const AddModalForm = () => {
   const [isModalOpen, toggleModalOpen] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
   const { api } = useLaravelSanctum()
-  const {
-    user,
-    singDate,
-    singArtistId,
-    singArtistName,
-    singSongName,
-    singJacketImage,
-    singKey,
-    singRate,
-    singScore,
-    singProblem,
-    singMemo,
-    resetRecordBuilder,
-    addRecord,
-    setInitComplete,
-  } = useSetlists()
+  const { user, addRecord, setInitComplete } = useSetlists()
+  const { addTmpRecord: tmp, resetAddTmpRecord } = useAddTmp()
   useLatest()
 
   useEffect(() => {
-    console.log(isModalOpen)
-  }, [isModalOpen])
-
-  useEffect(() => {
-    console.log(singArtistName)
-  }, [singArtistName])
+    console.log(tmp)
+  }, [tmp])
 
   const submitFetch = async () => {
     return await api
       .post('/api/ohako/setlist/store', {
         json: {
+          ...tmp,
           userId: user.id,
-          singDate: singDate
-            ? singDate.toLocaleDateString('ja-JP')
+          singDate: tmp.singDate
+            ? tmp.singDate.toLocaleDateString('ja-JP')
             : new Date().toLocaleDateString('ja-JP'),
-          artistId: singArtistId,
-          artistName: singArtistName,
-          songName: singSongName,
-          jacketImage: singJacketImage,
-          singKey: singKey,
-          rating: singRate,
-          score: singScore,
-          memo: singMemo,
-          problems: singProblem.map((obj) => obj.id),
+          problems: tmp.problemsData.map((obj) => obj.id),
         },
       })
       .json()
@@ -75,21 +51,12 @@ const AddModalForm = () => {
         return
       }
       addRecord({
+        ...tmp,
         id: data.id,
-        singDate: singDate,
-        artistId: singArtistId,
-        artistName: singArtistName,
-        songName: singSongName,
-        jacketImage: singJacketImage,
-        singKey: singKey,
-        rating: singRate,
-        score: singScore,
-        memo: singMemo,
-        problemsData: singProblem,
-        problems: singProblem.map((obj) => obj.content),
+        problems: tmp.problemsData.map((obj) => obj.content),
         registDate: parseISO(data.created_at),
       })
-      resetRecordBuilder()
+      resetAddTmpRecord()
       setErrorMsg('')
       toggleModalOpen(false)
     },

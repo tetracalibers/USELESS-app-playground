@@ -1,13 +1,19 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useAddTmp } from '../../../providers/AddTmpProvider'
 import ProblemSelector from '../ProblemSelector'
 
 const ProblemInput = () => {
-  const { setProblem, singProblem } = useSetlists()
+  const { addTmpRecord, writeAddTmpData } = useAddTmp()
+  const { problemsData } = addTmpRecord
 
   return (
     <div>
-      <ProblemSelector value={singProblem} setValue={setProblem} />
+      <ProblemSelector
+        value={problemsData}
+        setValue={(info) => {
+          writeAddTmpData('problemsData', info)
+        }}
+      />
     </div>
   )
 }

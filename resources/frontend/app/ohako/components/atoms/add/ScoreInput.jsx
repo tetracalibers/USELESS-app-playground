@@ -1,13 +1,17 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useAddTmp } from '../../../providers/AddTmpProvider'
 import ScoreChartInput from '../../../../common/components/ScoreChartInput'
 
 const ScoreInput = () => {
-  const { singScore, setScore } = useSetlists()
+  const { addTmpRecord, writeAddTmpData } = useAddTmp()
+  const { score } = addTmpRecord
 
   return (
     <div>
-      <ScoreChartInput score={singScore} setScore={setScore} />
+      <ScoreChartInput
+        score={score}
+        setScore={(value) => writeAddTmpData('score', value)}
+      />
     </div>
   )
 }

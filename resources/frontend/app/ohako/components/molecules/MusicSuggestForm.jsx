@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useQuery } from 'react-query'
 import { useSetlists } from '../../providers/SetlistProvider'
+import { useAddTmp } from '../../providers/AddTmpProvider'
 import { usePreviousKey } from '../../hooks/usePreviousKey'
 import { useLog } from '../../hooks/useLog'
 import { TextInput, Collection, CollectionItem } from 'react-materialize'
@@ -12,17 +13,8 @@ import { css } from '@emotion/css'
 import Prando from 'prando'
 
 const MusicSuggestForm = () => {
-  const {
-    singArtistName,
-    setArtistName,
-    singArtistId,
-    setArtistId,
-    setSongName,
-    singSongName,
-    setJacketImage,
-    setKey,
-    user,
-  } = useSetlists()
+  const { user } = useSetlists()
+  const { addTmpRecord: tmp, setAddTmpRecord } = useAddTmp()
   const { artistLog, songLog } = useLog()
   const { getPreviousKey } = usePreviousKey()
 
@@ -54,9 +46,9 @@ const MusicSuggestForm = () => {
   /* Phase - rerender after send error ---------------------------------------- */
 
   useEffect(() => {
-    if (!canInputSong && singSongName.length > 0 && singArtistName.length > 0) {
+    if (!canInputSong && tmp.songName.length > 0 && tmp.artistName.length > 0) {
       setCanInputSong(true)
-      setSongInputValue(singSongName)
+      setSongInputValue(tmp.songName)
     }
   }, [])
 
@@ -106,7 +98,7 @@ const MusicSuggestForm = () => {
     entity: 'song',
     attribute: 'songTerm',
     options: {
-      id: singArtistId,
+      id: tmp.artistId,
     },
   })
 
@@ -166,8 +158,7 @@ const MusicSuggestForm = () => {
   }
 
   const _updateGlobalArtistState = ({ artistId, artistName }) => {
-    setArtistId(artistId)
-    setArtistName(artistName)
+    setAddTmpRecord({ ...tmp, artistId, artistName })
   }
 
   const artistSelected = (artistInfo = 'NotFound') => {
@@ -193,10 +184,10 @@ const MusicSuggestForm = () => {
   }
 
   useEffect(() => {
-    if (singArtistId > -1) {
+    if (tmp.artistId > -1) {
       songRefetch()
     }
-  }, [singArtistId])
+  }, [tmp.artistId])
 
   /* Phase - fetchingArtistsFromAPI ------------------------------------------- */
 
@@ -259,10 +250,13 @@ const MusicSuggestForm = () => {
   }
 
   const _updateGlobalSongState = ({ song, artist, thumbnail, key }) => {
-    setSongName(song)
-    setArtistName(artist)
-    setJacketImage(thumbnail)
-    setKey(key)
+    setAddTmpRecord({
+      ...tmp,
+      songName: song,
+      artistName: artist,
+      jacketImage: thumbnail,
+      singKey: key,
+    })
   }
 
   const songSelected = (songInfo = 'NotFound') => {
@@ -273,16 +267,16 @@ const MusicSuggestForm = () => {
     if (songInfo !== 'NotFound') {
       setSongInputValue(songInfo.song)
       if (!isSuggestArtistFromFetch) {
-        key = getPreviousKey(songInfo.song, singArtistId)
+        key = getPreviousKey(songInfo.song, tmp.artistId)
       }
       _updateGlobalSongState({ ...songInfo, key })
     } else {
       if (!isSuggestArtistFromFetch) {
-        key = getPreviousKey(songInputValue, singArtistId)
+        key = getPreviousKey(songInputValue, tmp.artistId)
       }
       _updateGlobalSongState({
         song: songInputValue,
-        artist: singArtistName,
+        artist: tmp.artistName,
         thumbnail: '',
         key: key,
       })
@@ -302,7 +296,7 @@ const MusicSuggestForm = () => {
       !songSettled &&
       matchSongs.length === 0 &&
       songInputValue.length > 0 &&
-      singArtistId > 0
+      tmp.artistId > 0
     if (_notFoundMatchSongsInLog) {
       setIsSuggestSongFromFetch(true)
       setMatchSongs(fetchedSongs)
@@ -320,13 +314,16 @@ const MusicSuggestForm = () => {
   }
 
   useEffect(() => {
-    if (artistInputValue.length === 0 && singArtistName.length === 0)
+    if (artistInputValue.length === 0 && tmp.artistName.length === 0)
       setCanInputSong(false)
   }, [artistInputValue])
 
   const _songGlobalStateReset = () => {
-    setSongName('')
-    setJacketImage('')
+    setAddTmpRecord({
+      ...tmp,
+      songName: '',
+      jacketImage: '',
+    })
   }
 
   const songInputClear = () => {
@@ -347,8 +344,11 @@ const MusicSuggestForm = () => {
   }
 
   const _artistGlobalStateReset = () => {
-    setArtistName('')
-    setArtistId(-1)
+    setAddTmpRecord({
+      ...tmp,
+      artistName: '',
+      artistId: -1,
+    })
     _songGlobalStateReset()
   }
 

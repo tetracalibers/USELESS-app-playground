@@ -1,15 +1,16 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useAddTmp } from '../../../providers/AddTmpProvider'
 import FlexibleTextarea from '../../../../common/components/FlexibleTextarea'
 
 const MemoInput = () => {
-  const { singMemo, setMemo } = useSetlists()
+  const { addTmpRecord, writeAddTmpData } = useAddTmp()
+  const { memo } = addTmpRecord
 
   return (
     <div>
-      <FlexibleTextarea 
-        value={singMemo}
-        setValue={setMemo}
+      <FlexibleTextarea
+        value={memo}
+        setValue={(value) => writeAddTmpData('memo', value)}
       />
     </div>
   )

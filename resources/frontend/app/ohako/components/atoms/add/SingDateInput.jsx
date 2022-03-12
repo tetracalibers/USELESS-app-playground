@@ -1,11 +1,17 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useAddTmp } from '../../../providers/AddTmpProvider'
 import DatePicker from '../../../../common/components/DatePicker'
 
 const SingDateInput = () => {
-  const { singDate, setDate } = useSetlists()
+  const { addTmpRecord, writeAddTmpData } = useAddTmp()
+  const { singDate } = addTmpRecord
 
-  return <DatePicker selected={singDate} onChange={(date) => setDate(date)} />
+  return (
+    <DatePicker
+      selected={singDate}
+      onChange={(date) => writeAddTmpData('singDate', date)}
+    />
+  )
 }
 
 export default SingDateInput

@@ -1,13 +1,17 @@
 import React from 'react'
-import { useSetlists } from '../../../providers/SetlistProvider'
+import { useAddTmp } from '../../../providers/AddTmpProvider'
 import Rating from '../../../../common/components/Rating'
 
 const RateInput = () => {
-  const { singRate, setRate } = useSetlists()
+  const { addTmpRecord, writeAddTmpData } = useAddTmp()
+  const { rating } = addTmpRecord
 
   return (
     <div>
-      <Rating value={singRate} onClick={(value) => setRate(value)} />
+      <Rating
+        value={rating}
+        onClick={(value) => writeAddTmpData('rating', value)}
+      />
     </div>
   )
 }
