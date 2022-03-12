@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify'
 const EditModalForm = () => {
   const {
     isModalOpen,
+    toggleModalOpen,
     errorMsg,
     setErrorMsg,
     isLoading,
@@ -34,6 +35,7 @@ const EditModalForm = () => {
             header="Edit the history"
             id="ohakoEditSetlistFormModal"
             isModalOpen={isModalOpen}
+            setIsModalOpen={toggleModalOpen}
             errorMsg={errorMsg}
             SingDateForm={<SingDateEdit />}
             headerAfter={<MusicInfoNoEdit />}

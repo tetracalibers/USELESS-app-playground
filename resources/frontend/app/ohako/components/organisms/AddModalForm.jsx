@@ -35,6 +35,14 @@ const AddModalForm = () => {
   } = useSetlists()
   useLatest()
 
+  useEffect(() => {
+    console.log(isModalOpen)
+  }, [isModalOpen])
+
+  useEffect(() => {
+    console.log(singArtistName)
+  }, [singArtistName])
+
   const submitFetch = async () => {
     return await api
       .post('/api/ohako/setlist/store', {
@@ -106,6 +114,7 @@ const AddModalForm = () => {
       header="Add a new history"
       id="ohakoAddSetlistFormModal"
       isModalOpen={isModalOpen}
+      setIsModalOpen={toggleModalOpen}
       errorMsg={errorMsg}
       SingDateForm={<SingDateInput />}
       MusicForm={<MusicSuggestForm />}

@@ -94,6 +94,7 @@ export const useUpdateSubmit = () => {
 
   return {
     isModalOpen,
+    toggleModalOpen,
     errorMsg,
     setErrorMsg,
     isLoading,
