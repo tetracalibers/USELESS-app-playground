@@ -7,7 +7,7 @@ import { TextInput, Collection, CollectionItem } from 'react-materialize'
 import { TiTimesOutline } from 'react-icons/ti'
 import { useiTunesAPI } from '../../../common/hooks/useiTunesAPI'
 import { BiUserVoice } from 'react-icons/bi'
-import Skeleton from 'react-loading-skeleton'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { css } from '@emotion/css'
 import Prando from 'prando'
 
@@ -378,7 +378,14 @@ const MusicSuggestForm = () => {
     <>
       <div>
         {isLoading ? (
-          <Skeleton />
+          <SkeletonTheme
+            baseColor="#ebebeb10"
+            highlightColor="#f5f5f580"
+            borderRadius="30px"
+            height="4rem"
+          >
+            <Skeleton />
+          </SkeletonTheme>
         ) : (
           <>
             <div className={css_label}>
@@ -393,47 +400,33 @@ const MusicSuggestForm = () => {
               onFocus={() => startSuggestingArtists()}
               onTouchEnd={() => startSuggestingArtists()}
               icon={
-                artistInputValue.length > 0 ? (
+                artistInputValue.length > 0 && (
                   <TiTimesOutline onClick={(e) => artistInputClear(e)} />
-                ) : (
-                  ''
                 )
               }
             />
-          </>
-        )}
-        {visibleArtistSuggest ? (
-          <Collection>
-            <>
-              {isSuggestArtistFromFetch ? (
-                <CollectionItem onClick={(e) => artistSelected()}>
-                  <span className="title">候補にない</span>
-                </CollectionItem>
-              ) : (
-                ''
-              )}
-              {matchArtists.map((info, i) => (
-                <CollectionItem
-                  onClick={(e) => artistSelected(info)}
-                  key={`artist-${i}`}
-                  className={css`
-                    --pastel: ${color_pastel[i % color_pastel.length]};
-                  `}
-                >
-                  <span className="title">{info.artistName}</span>
-                </CollectionItem>
-              ))}
-            </>
-          </Collection>
-        ) : (
-          ''
-        )}
-      </div>
-      <div>
-        {isLoading ? (
-          <Skeleton />
-        ) : (
-          <>
+            {visibleArtistSuggest && (
+              <Collection>
+                <>
+                  {isSuggestArtistFromFetch && (
+                    <CollectionItem onClick={(e) => artistSelected()}>
+                      <span className="title">候補にない</span>
+                    </CollectionItem>
+                  )}
+                  {matchArtists.map((info, i) => (
+                    <CollectionItem
+                      onClick={(e) => artistSelected(info)}
+                      key={`artist-${i}`}
+                      className={css`
+                        --pastel: ${color_pastel[i % color_pastel.length]};
+                      `}
+                    >
+                      <span className="title">{info.artistName}</span>
+                    </CollectionItem>
+                  ))}
+                </>
+              </Collection>
+            )}
             {!canInputSong && (
               <div className={css_label}>
                 まずは上の欄にアーティスト名を記入してください
@@ -446,52 +439,44 @@ const MusicSuggestForm = () => {
               onTouchEnd={() => restartSuggestingSongs()}
               onCompositionEnd={() => unregisteredArtistsSongSave()}
               icon={
-                songInputValue.length > 0 ? (
+                songInputValue.length > 0 && (
                   <TiTimesOutline onClick={(e) => songInputClear(e)} />
-                ) : (
-                  ''
                 )
               }
               disabled={!canInputSong ? true : false}
               placeholder="search song"
             />
-          </>
-        )}
-        {visibleSongSuggest && !isLoading ? (
-          <Collection>
-            <>
-              {isSuggestSongFromFetch ? (
-                <CollectionItem onClick={(e) => songSelected()}>
-                  <span className="title">候補にない</span>
-                </CollectionItem>
-              ) : (
-                ''
-              )}
-              {matchSongs.map((info, i) => (
-                <CollectionItem
-                  className="avatar"
-                  onClick={(e) => songSelected(info)}
-                  key={`song-${i}`}
-                  className={css`
-                    --pastel: ${color_pastel[i % color_pastel.length]};
-                  `}
-                >
-                  {info.thumbnail.length > 0 ? (
-                    <img className="circle" src={info.thumbnail} />
-                  ) : (
-                    ''
+            {visibleSongSuggest && !isLoading && (
+              <Collection>
+                <>
+                  {isSuggestSongFromFetch && (
+                    <CollectionItem onClick={(e) => songSelected()}>
+                      <span className="title">候補にない</span>
+                    </CollectionItem>
                   )}
-                  <span className="title">{info.song}</span>
-                  <p>
-                    <BiUserVoice />
-                    {info.artist}
-                  </p>
-                </CollectionItem>
-              ))}
-            </>
-          </Collection>
-        ) : (
-          ''
+                  {matchSongs.map((info, i) => (
+                    <CollectionItem
+                      className="avatar"
+                      onClick={(e) => songSelected(info)}
+                      key={`song-${i}`}
+                      className={css`
+                        --pastel: ${color_pastel[i % color_pastel.length]};
+                      `}
+                    >
+                      {info.thumbnail.length > 0 && (
+                        <img className="circle" src={info.thumbnail} />
+                      )}
+                      <span className="title">{info.song}</span>
+                      <p>
+                        <BiUserVoice />
+                        {info.artist}
+                      </p>
+                    </CollectionItem>
+                  ))}
+                </>
+              </Collection>
+            )}
+          </>
         )}
       </div>
     </>
