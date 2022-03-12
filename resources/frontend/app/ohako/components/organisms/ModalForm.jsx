@@ -130,7 +130,7 @@ const ModalForm = ({
                 flat
                 modal="close"
                 node="button"
-                waves="green"
+                waves="light"
                 className={css_button_close}
                 onClick={onClose}
               >
