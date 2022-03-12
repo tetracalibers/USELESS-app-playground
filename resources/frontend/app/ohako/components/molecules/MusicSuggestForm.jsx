@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useQuery } from 'react-query'
 import { useSetlists } from '../../providers/SetlistProvider'
 import { usePreviousKey } from '../../hooks/usePreviousKey'
@@ -9,6 +9,7 @@ import { useiTunesAPI } from '../../../common/hooks/useiTunesAPI'
 import { BiUserVoice } from 'react-icons/bi'
 import Skeleton from 'react-loading-skeleton'
 import { css } from '@emotion/css'
+import Prando from 'prando'
 
 const MusicSuggestForm = () => {
   const {
@@ -20,6 +21,7 @@ const MusicSuggestForm = () => {
     singSongName,
     setJacketImage,
     setKey,
+    user,
   } = useSetlists()
   const { artistLog, songLog } = useLog()
   const { getPreviousKey } = usePreviousKey()
@@ -31,6 +33,7 @@ const MusicSuggestForm = () => {
   const [artistFetchQuery, setArtistFetchQuery] = useState('')
   const [isSuggestArtistFromFetch, setIsSuggestArtistFromFetch] =
     useState(false)
+  const [isUnregisteredArtist, setIsUnregisteredArtist] = useState(false)
 
   const [canInputSong, setCanInputSong] = useState(false)
   const [suggestSongs, setSuggestSongs] = useState([])
@@ -176,7 +179,15 @@ const MusicSuggestForm = () => {
       _updateGlobalArtistState(artistInfo)
       _startSuggestingSongs(artistInfo)
     } else {
-      _updateGlobalArtistState({ artistId: -1, artistName: artistInputValue })
+      const newOriginalArtistId =
+        Math.floor(
+          new Prando(user.id + '-' + artistInputValue).next(2, 99999)
+        ) * -1
+      setIsUnregisteredArtist(true)
+      _updateGlobalArtistState({
+        artistId: newOriginalArtistId,
+        artistName: artistInputValue,
+      })
     }
     setCanInputSong(true)
   }
@@ -266,12 +277,21 @@ const MusicSuggestForm = () => {
       }
       _updateGlobalSongState({ ...songInfo, key })
     } else {
+      if (!isSuggestArtistFromFetch) {
+        key = getPreviousKey(songInputValue, singArtistId)
+      }
       _updateGlobalSongState({
         song: songInputValue,
         artist: singArtistName,
         thumbnail: '',
         key: key,
       })
+    }
+  }
+
+  const unregisteredArtistsSongSave = () => {
+    if (isUnregisteredArtist) {
+      songSelected()
     }
   }
 
@@ -368,7 +388,7 @@ const MusicSuggestForm = () => {
               value={artistInputValue}
               onChange={(e) => startFilteringArtists(e)}
               onCompositionStart={() => zenkakuStart()}
-              onCompositionEnd={(data) => zenkakuEndInArtist(data)}
+              onCompositionEnd={(t) => zenkakuEndInArtist(t)}
               placeholder="search artists"
               onFocus={() => startSuggestingArtists()}
               onTouchEnd={() => startSuggestingArtists()}
@@ -424,6 +444,7 @@ const MusicSuggestForm = () => {
               onChange={(e) => startFilteringSongs(e)}
               onFocus={() => restartSuggestingSongs()}
               onTouchEnd={() => restartSuggestingSongs()}
+              onCompositionEnd={() => unregisteredArtistsSongSave()}
               icon={
                 songInputValue.length > 0 ? (
                   <TiTimesOutline onClick={(e) => songInputClear(e)} />
