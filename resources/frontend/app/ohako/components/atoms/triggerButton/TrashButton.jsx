@@ -7,8 +7,10 @@ import { GiCrossedSabres } from 'react-icons/gi'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 import { confirmAlert } from 'react-confirm-alert'
 import { Button } from 'react-materialize'
+import { useWindowSize } from '@react-hook/window-size'
 
 const TrashButton = ({ recordId }) => {
+  const [width, height] = useWindowSize()
   const { api } = useLaravelSanctum()
   const { trashRecord } = useSetlists()
   const clicked = useRef(-1)
@@ -59,7 +61,7 @@ const TrashButton = ({ recordId }) => {
 
   const css_confirm_text = css`
     font-family: rye;
-    font-size: 2rem;
+    font-size: ${width < height ? '7vw' : '5vh'};
     font-style: italic;
     letter-spacing: 0.1em;
     text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c,
@@ -80,7 +82,7 @@ const TrashButton = ({ recordId }) => {
   `
   const css_confirm_button_yes = css`
     padding-top: 4rem;
-    font-size: 2rem;
+    font-size: ${width < height ? '7vw' : '5vh'};
     text-align: center;
     text-shadow: 0 -1px 4px #fff, 0 -2px 10px #ff0, 0 -10px 20px #ff8000,
       0 -18px 40px #f00;
@@ -90,7 +92,7 @@ const TrashButton = ({ recordId }) => {
   `
   const css_confirm_button_cancel = css`
     text-align: center;
-    font-size: 2rem;
+    font-size: ${width < height ? '7vw' : '5vh'};
     padding-top: 4rem;
     color: rgba(255, 255, 255, 0.3);
     text-shadow: 0 0 15px rgb(255 255 255 / 50%),
@@ -99,16 +101,15 @@ const TrashButton = ({ recordId }) => {
     font-family: 'Josefin Sans', sans-serif;
   `
   const css_confirm_icon = css`
-    position: absolute;
-    left: 50%;
-    font-size: 10rem;
-    top: -100%;
-    transform: translate(-50%, -50%);
+    font-size: ${width < height ? '35vw' : '30vh'};
+    transform: translateZ(0);
     z-index: -1;
     height: auto;
     color: rgba(75, 115, 180, 1);
     filter: brightness(0.5);
-    transform: translateZ(0);
+    svg {
+      vertical-align: baseline;
+    }
   `
 
   const trashHandler = (e) => {
