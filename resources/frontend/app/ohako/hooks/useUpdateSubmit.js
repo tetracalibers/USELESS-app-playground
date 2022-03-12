@@ -68,10 +68,10 @@ export const useUpdateSubmit = () => {
 
   const toastOptions = {
     position: 'top-right',
-    autoClose: 5000,
+    autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     draggable: true,
     progress: undefined,
     transition: Flip,
@@ -80,15 +80,14 @@ export const useUpdateSubmit = () => {
 
   const toastContainerOptions = {
     position: 'top-right',
-    autoClose: 5000,
-    hideProgressBar: false,
+    autoClose: 1500,
     hideProgressBar: false,
     newestOnTop: false,
     closeOnClick: true,
     rtl: false,
-    pauseOnHover: true,
+    pauseOnHover: false,
     draggable: true,
-    pauseOnFocusLoss: true,
+    pauseOnFocusLoss: false,
     transition: Flip,
     theme: 'colored',
   }

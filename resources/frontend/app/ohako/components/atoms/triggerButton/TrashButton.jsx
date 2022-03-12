@@ -15,10 +15,10 @@ const TrashButton = ({ recordId }) => {
 
   const toastOptions = {
     position: 'top-right',
-    autoClose: 5000,
+    autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     draggable: true,
     progress: undefined,
     transition: Flip,
@@ -188,14 +188,14 @@ const TrashButton = ({ recordId }) => {
       </Button>
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable
-        pauseOnHover
+        pauseOnHover={false}
         transition={Flip}
         theme="colored"
       />
