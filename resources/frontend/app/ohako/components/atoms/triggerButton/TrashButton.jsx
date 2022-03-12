@@ -14,7 +14,7 @@ const TrashButton = ({ recordId }) => {
   const clicked = useRef(-1)
 
   const toastOptions = {
-    position: 'bottom-left',
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -187,7 +187,7 @@ const TrashButton = ({ recordId }) => {
         <GiCrossedSabres />
       </Button>
       <ToastContainer
-        position="bottom-left"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

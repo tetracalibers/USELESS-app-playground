@@ -66,7 +66,7 @@ export const useUpdateSubmit = () => {
   }
 
   const toastOptions = {
-    position: 'bottom-left',
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -78,7 +78,7 @@ export const useUpdateSubmit = () => {
   }
 
   const toastContainerOptions = {
-    position: 'bottom-left',
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     hideProgressBar: false,
