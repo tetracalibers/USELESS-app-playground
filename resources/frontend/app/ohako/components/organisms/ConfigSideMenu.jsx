@@ -1,14 +1,15 @@
 import React from 'react'
 import {
   pushRotate as MenuDefault,
-  push as MenuForOld,
+  push as MenuForSafari,
+  slide as MenuForMobile,
 } from 'react-burger-menu'
 import FilterConfigForm from '../molecules/FilterConfigForm'
 import SortConfigForm from '../molecules/SortConfigForm'
 import { GiLightSabers } from 'react-icons/gi'
 import { GrSettingsOption } from 'react-icons/gr'
 import { css } from '@emotion/css'
-import { isSafari, isIOS } from 'react-device-detect'
+import { isSafari, isMobile } from 'react-device-detect'
 
 const menuStyles = {
   bmBurgerButton: {
@@ -79,37 +80,32 @@ const ConfigSideMenu = () => {
     }
   `
 
-  return (
+  const menuOptions = {
+    outerContainerId: 'outerContainer-forReactBurgerMenu',
+    pageWrapId: 'pageWrap-forReactBurgerMenu',
+    customBurgerIcon: <GrSettingsOption />,
+    customCrossIcon: <GiLightSabers />,
+    disableAutoFocus: true,
+    styles: menuStyles,
+    className: css_memu,
+  }
+
+  const menuChildren = (
     <>
-      {isSafari || isIOS ? (
-        <MenuForOld
-          outerContainerId={'outerContainer-forReactBurgerMenu'}
-          pageWrapId={'pageWrap-forReactBurgerMenu'}
-          customBurgerIcon={<GrSettingsOption />}
-          customCrossIcon={<GiLightSabers />}
-          disableAutoFocus
-          styles={menuStyles}
-          className={css_memu}
-        >
-          <FilterConfigForm />
-          <SortConfigForm />
-        </MenuForOld>
-      ) : (
-        <MenuDefault
-          outerContainerId={'outerContainer-forReactBurgerMenu'}
-          pageWrapId={'pageWrap-forReactBurgerMenu'}
-          customBurgerIcon={<GrSettingsOption />}
-          customCrossIcon={<GiLightSabers />}
-          disableAutoFocus
-          styles={menuStyles}
-          className={css_memu}
-        >
-          <FilterConfigForm />
-          <SortConfigForm />
-        </MenuDefault>
-      )}
+      <FilterConfigForm />
+      <SortConfigForm />
     </>
   )
+
+  if (isMobile) {
+    return <MenuForMobile {...menuOptions}>{menuChildren}</MenuForMobile>
+  }
+
+  if (isSafari) {
+    return <MenuForSafari {...menuOptions}>{menuChildren}</MenuForSafari>
+  }
+
+  return <MenuDefault {...menuOptions}>{menuChildren}</MenuDefault>
 }
 
 export default ConfigSideMenu
