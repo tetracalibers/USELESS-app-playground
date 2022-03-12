@@ -46,6 +46,7 @@ export const useUpdateSubmit = () => {
       setAllRecords(updatedAllRecords)
       setErrorMsg('')
       resetDiff()
+      toggleModalOpen(false)
       toast.success('Updated successfully', {
         ...toastOptions,
       })
