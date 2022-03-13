@@ -1,11 +1,11 @@
 import React from 'react'
-import { useSort } from '../../../hooks/useSort'
+import { useSortFlag } from '../../../providers/SortProvider'
 import { ImSortAmountAsc, ImSortAmountDesc } from 'react-icons/im'
 import Toggle from 'react-toggle'
 import { css } from '@emotion/css'
 
 const SortOrderToggleButton = () => {
-  const { toggleSortOrder, isDesc } = useSort()
+  const { toggleSortOrder, isDesc } = useSortFlag()
 
   const css_wrap = css`
     width: 100%;

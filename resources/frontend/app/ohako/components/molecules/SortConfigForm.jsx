@@ -1,12 +1,14 @@
 import React from 'react'
 import { css } from '@emotion/css'
 import { useToggleSortMode } from '../../hooks/useToggleSortMode'
+import { useSortExec } from '../../hooks/useSortExec'
 import TwoWaySwitchButton from '../../../common/components/TwoWaySwitchButton'
 import SortColumnSelect from '../atoms/sort/SortColumnSelect'
 import SortOrderToggleButton from '../atoms/sort/SortOrderToggleButton'
 
 const SortConfigForm = () => {
   const { customSortOn, sortModeToggle } = useToggleSortMode()
+  useSortExec()
 
   const css_title = css`
     color: rgb(124, 152, 179);

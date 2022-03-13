@@ -1,10 +1,10 @@
 import React from 'react'
-import { useSort } from '../../../hooks/useSort'
+import { useSortFlag } from '../../../providers/SortProvider'
 import { visibles } from '../../../schema/columns'
 import DropdownSelect from '../../../../common/components/DropdownSelect'
 
 const SortColumnSelect = () => {
-  const { setSortBy, sortBy } = useSort()
+  const { setSortBy, sortBy } = useSortFlag()
 
   return (
     <DropdownSelect
