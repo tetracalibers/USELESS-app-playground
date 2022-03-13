@@ -31,7 +31,7 @@ export const useSort = () => {
   }
 
   useEffect(() => {
-    sortExec()
+    if (sortBy.length > 0) sortExec()
   }, [sortBy, isDesc])
 
   const toggleSortOrder = () => setIsDesc(!isDesc)

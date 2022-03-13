@@ -56,7 +56,6 @@ class SetlistEntity
   {
     return OhakoSetlist::with('problems')
       ->where('user_id', $request->userId)
-      ->latest()
       ->orderBy('sing_date', 'desc')
       ->get();
   }
