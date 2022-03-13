@@ -44,10 +44,16 @@ const DropdownSelect = ({
       }
     }
   `
+  let placeholder = defaultValue
 
-  const placeholder = Array.isArray(defaultValue)
-    ? defaultValue.map((info) => info.content).join(', ')
-    : defaultValue
+  if (Array.isArray(defaultValue) && multiple) {
+    placeholder = defaultValue.map((info) => info[optionLabelKey]).join(', ')
+  } else if (typeof optionsArray[0] == 'object') {
+    const defaultObj = optionsArray.find(
+      (option) => option[optionValueKey] == defaultValue
+    )
+    placeholder = defaultObj ? defaultObj[optionLabelKey] : placeholder
+  }
 
   let settings = {
     components: animatedComponents,
