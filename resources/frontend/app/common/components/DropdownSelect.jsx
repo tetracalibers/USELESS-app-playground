@@ -19,8 +19,12 @@ const DropdownSelect = ({
       &__value-container,
       &__input-container,
       &__option {
-        height: ${multiple ? 'auto' : '2rem'};
+        height: auto;
         font-family: 'TsukushiBMaruGothic';
+        ${!multiple && 'line-height: 2rem;'}
+      }
+      &__single-value {
+        ${!multiple && 'line-height: 2rem;'}
       }
       &__value-container {
         padding: ${multiple ? '2rem 1rem' : '2px 8px'};
