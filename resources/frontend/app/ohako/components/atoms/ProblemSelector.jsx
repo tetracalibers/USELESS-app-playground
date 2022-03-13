@@ -3,7 +3,7 @@ import { css } from '@emotion/css'
 import { useSetlists } from '../../providers/SetlistProvider'
 import DropdownSelect from '../../../common/components/DropdownSelect'
 
-const ProblemSelector = ({ value, setValue }) => {
+const ProblemSelector = ({ defaultValue, value = null, setValue }) => {
   const { allProblems } = useSetlists()
 
   const color_pastel = [
@@ -68,7 +68,8 @@ const ProblemSelector = ({ value, setValue }) => {
         optionValueKey="id"
         optionLabelKey="content"
         onChange={setValue}
-        defaultValue={value}
+        defaultValue={defaultValue}
+        value={value ? value : defaultValue}
         multiple={true}
       />
     </div>

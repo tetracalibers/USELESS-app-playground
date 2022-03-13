@@ -22,10 +22,6 @@ const AddModalForm = () => {
   const { addTmpRecord: tmp, resetAddTmpRecord } = useAddTmp()
   useLatest()
 
-  useEffect(() => {
-    console.log(tmp)
-  }, [tmp])
-
   const submitFetch = async () => {
     return await api
       .post('/api/ohako/setlist/store', {

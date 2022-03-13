@@ -9,7 +9,7 @@ const ProblemsEdit = () => {
     <div>
       {diff.id != -1 && (
         <ProblemSelector
-          value={diff.problemsData}
+          defaultValue={diff.problemsData}
           setValue={(info) => {
             rewriteDiff('problemsData', info)
           }}

@@ -14,7 +14,7 @@ const AddTmpProvider = ({ children }) => {
       jacketImage: '',
       singKey: 0,
       rating: 0,
-      score: 0,
+      score: '',
       memo: '',
       problems: [],
       problemsData: [],

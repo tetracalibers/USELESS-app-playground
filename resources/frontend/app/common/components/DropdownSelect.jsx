@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { css } from '@emotion/css'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
@@ -10,10 +10,9 @@ const DropdownSelect = ({
   optionLabelKey,
   onChange,
   defaultValue,
+  value = null,
   multiple = false,
 }) => {
-  const selectRef = useRef(null)
-
   const css_container = css`
     .react-select {
       &__control,
@@ -46,34 +45,32 @@ const DropdownSelect = ({
     ? defaultValue.map((info) => info.content).join(', ')
     : defaultValue
 
-  return (
-    <Select
-      ref={selectRef}
-      components={animatedComponents}
-      options={optionsArray}
-      getOptionLabel={(options) => options[optionLabelKey]}
-      getOptionValue={(options) => options[optionValueKey]}
-      onChange={onChange}
-      defaultValue={defaultValue}
-      isMulti={multiple}
-      isClearable={true}
-      blurInputOnSelect={true}
-      captureMenuScroll={false}
-      closeMenuOnSelect={true}
-      isSearchable={true}
-      placeholder={placeholder}
-      onFocus={() => {
-        if (
-          selectRef.current.getValue().length == 0 &&
-          selectRef.current.props.placeholder == defaultValue
-        ) {
-          selectRef.current.clearValue()
-        }
-      }}
-      className={css_container}
-      classNamePrefix="react-select"
-    />
-  )
+  let settings = {
+    components: animatedComponents,
+    options: optionsArray,
+    getOptionLabel: (options) => options[optionLabelKey],
+    getOptionValue: (options) => options[optionValueKey],
+    onChange,
+    defaultValue,
+    isMulti: multiple,
+    isClearable: true,
+    blurInputOnSelect: true,
+    captureMenuScroll: false,
+    closeMenuOnSelect: true,
+    isSearchable: true,
+    placeholder,
+    className: css_container,
+    classNamePrefix: 'react-select',
+  }
+
+  if (value) {
+    settings = {
+      ...settings,
+      value: value,
+    }
+  }
+
+  return <Select {...settings} />
 }
 
 export default DropdownSelect

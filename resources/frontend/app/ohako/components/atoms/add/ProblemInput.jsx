@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAddTmp } from '../../../providers/AddTmpProvider'
 import ProblemSelector from '../ProblemSelector'
 
 const ProblemInput = () => {
-  const { addTmpRecord, writeAddTmpData } = useAddTmp()
-  const { problemsData } = addTmpRecord
+  const { addTmpRecord: tmp, writeAddTmpData } = useAddTmp()
 
   return (
     <div>
       <ProblemSelector
-        value={problemsData}
+        value={tmp.problemsData}
+        defaultValue=""
         setValue={(info) => {
           writeAddTmpData('problemsData', info)
         }}
