@@ -357,6 +357,15 @@ const MusicSuggestForm = () => {
     _artistGlobalStateReset()
   }
 
+  /* tmpがリセットされたらinputValueもリセット ---------------------------------------------- */
+
+  useEffect(() => {
+    if (tmp.songName.length == 0) {
+      _artistStateReset()
+      _songStateReset()
+    }
+  }, [tmp.songName])
+
   /* View & Styling ----------------------------------------------------------- */
 
   const color_pastel = [

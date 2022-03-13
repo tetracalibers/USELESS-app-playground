@@ -8,7 +8,7 @@ export const usePreviousKey = () => {
       (info) => songName == info.songName && artistId == info.artistId
     )
     matchedSong.sort((current, next) =>
-      current[singDate] > next[singDate] ? 1 : -1
+      current['singDate'] > next['singDate'] ? 1 : -1
     )
     return matchedSong.length > 0 ? matchedSong[0].singKey : 0
   }
