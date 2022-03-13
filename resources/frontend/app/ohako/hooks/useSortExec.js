@@ -6,24 +6,30 @@ import compareDesc from 'date-fns/compareDesc'
 
 export const useSortExec = () => {
   const { allRecords, setAllRecords } = useSetlists()
-  const { sortBy, isDesc } = useSortFlag()
+  const { sortBy, isDesc, customSortOn, restoreDefaultSortOrder } =
+    useSortFlag()
 
   const sortExec = () => {
     let clone = Array.from(allRecords)
     if (sortBy == 'singDate') {
-      clone.sort((current, next) => {
-        if (isDesc) {
-          return compareDesc(current[sortBy], next[sortBy])
-        } else {
-          return compareAsc(current[sortBy], next[sortBy])
-        }
-      })
+      clone
+        .sort((current, next) =>
+          compareAsc(current['registDate'], next['registDate'])
+        )
+        .sort((current, next) => {
+          if (isDesc) {
+            return compareDesc(current['singDate'], next['singDate'])
+          } else {
+            return compareAsc(current['singDate'], next['singDate'])
+          }
+        })
     } else {
       clone.sort((current, next) => {
+        // WARNING 意味的にはisAscが正確（変えるの面倒臭いので放置）
         if (isDesc) {
-          return current[sortBy] > next[sortBy] ? 1 : -1
-        } else {
           return current[sortBy] < next[sortBy] ? 1 : -1
+        } else {
+          return current[sortBy] > next[sortBy] ? 1 : -1
         }
       })
     }
@@ -31,6 +37,10 @@ export const useSortExec = () => {
   }
 
   useEffect(() => {
-    if (sortBy.length > 0) sortExec()
-  }, [sortBy, isDesc])
+    sortExec()
+  }, [sortBy, isDesc, allRecords.length, customSortOn])
+
+  useEffect(() => {
+    if (!customSortOn) restoreDefaultSortOrder()
+  }, [customSortOn])
 }

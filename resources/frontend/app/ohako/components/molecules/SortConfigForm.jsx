@@ -1,13 +1,13 @@
 import React from 'react'
 import { css } from '@emotion/css'
-import { useToggleSortMode } from '../../hooks/useToggleSortMode'
+import { useSortFlag } from '../../providers/SortProvider'
 import { useSortExec } from '../../hooks/useSortExec'
 import TwoWaySwitchButton from '../../../common/components/TwoWaySwitchButton'
 import SortColumnSelect from '../atoms/sort/SortColumnSelect'
 import SortOrderToggleButton from '../atoms/sort/SortOrderToggleButton'
 
 const SortConfigForm = () => {
-  const { customSortOn, sortModeToggle } = useToggleSortMode()
+  const { customSortOn, sortModeToggle } = useSortFlag()
   useSortExec()
 
   const css_title = css`
