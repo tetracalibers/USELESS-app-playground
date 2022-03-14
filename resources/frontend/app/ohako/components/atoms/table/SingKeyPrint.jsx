@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/css'
-import Flat from '../../../common/components/icon/Flat'
-import Sharp from '../../../common/components/icon/Sharp'
+import Flat from '../../../../common/components/icon/Flat'
+import Sharp from '../../../../common/components/icon/Sharp'
 
 const SingKeyPrint = ({ value }) => {
   const sharpColor = '#ff78c5'

@@ -11,7 +11,7 @@ import EditButton from '../atoms/triggerButton/EditButton'
 import format from 'date-fns/format'
 import RateStarsPrint from '../../../common/components/RateStarsPrint'
 import ScoreChartPrint from '../../../common/components/ScoreChartPrint'
-import SingKeyPrint from '../atoms/SingKeyPrint'
+import SingKeyPrint from '../atoms/table/SingKeyPrint'
 
 const ExcelTable = () => {
   useTableInit()
