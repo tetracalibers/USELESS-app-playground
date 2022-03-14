@@ -9,6 +9,7 @@ import { visibles } from '../../schema/columns'
 import TrashButton from '../atoms/triggerButton/TrashButton'
 import EditButton from '../atoms/triggerButton/EditButton'
 import format from 'date-fns/format'
+import RateStarsPrint from '../../../common/components/RateStarsPrint'
 
 const ExcelTable = () => {
   useTableInit()
@@ -140,7 +141,9 @@ const ExcelTable = () => {
               <Td>
                 {record.singKey > 0 ? `+${record.singKey}` : record.singKey}
               </Td>
-              <Td>{record.rating}</Td>
+              <Td>
+                <RateStarsPrint rate={record.rating} />
+              </Td>
               <Td>{record.score}</Td>
               <Td>
                 <ul>
