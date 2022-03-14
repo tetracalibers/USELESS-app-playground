@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useLayoutEffect } from 'react'
 import { css } from '@emotion/css'
 import { Modal, Button } from 'react-materialize'
 import { GiCrossedBones } from 'react-icons/gi'
@@ -25,6 +25,13 @@ const ModalForm = ({
   onSubmit,
   onClose = () => {},
 }) => {
+  const modalContentRef = useRef(null)
+  useEffect(() => {
+    if (isModalOpen && modalContentRef.current) {
+      modalContentRef.current.scrollIntoView()
+    }
+  }, [isModalOpen, modalContentRef.current])
+
   const css_wrap = css`
     background-color: rgba(255, 255, 255, 0);
     background-image: linear-gradient(315deg, #f9c5d17d 0%, #9795ef7a 74%);
@@ -33,6 +40,7 @@ const ModalForm = ({
     color: #485461;
     h4 {
       font-family: 'Satisfy', cursive;
+      margin: 0;
     }
     input[type='text']:not(.browser-default),
     input[type='text']:not(.browser-default):focus:not([readonly]) {
@@ -91,6 +99,9 @@ const ModalForm = ({
       top: 0;
       background: rgba(255, 255, 255, 0);
     }
+    .modal-content {
+      padding: 0 24px 24px;
+    }
   `
   const css_input_label = css`
     padding: 1rem 0;
@@ -118,6 +129,9 @@ const ModalForm = ({
   const css_button_close = css`
     font-size: 1.5rem;
   `
+  const css_header = css`
+    padding: 1.5rem 0;
+  `
 
   return (
     <>
@@ -139,7 +153,6 @@ const ModalForm = ({
               </Button>,
             ]}
             className={css_wrap}
-            header={header}
             id={id}
             bottomSheet={false}
             fixedFooter={false}
@@ -158,7 +171,8 @@ const ModalForm = ({
               startingTop: '4%',
             }}
           >
-            <div>
+            <div ref={modalContentRef}>
+              <h4 className={css_header}>{header}</h4>
               {headerAfter && <div>{headerAfter}</div>}
               {errorMsg != '' && <FormError message={errorMsg} />}
               <div>
