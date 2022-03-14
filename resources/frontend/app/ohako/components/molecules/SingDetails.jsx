@@ -46,7 +46,7 @@ const SingDetails = ({ record }) => {
       img {
         width: 100px;
         height: 100px;
-        filter: opacity(0.8);
+        filter: ${jacketImage.length > 0 ? 'opacity(0.8)' : 'opacity(0.5)'};
         border-radius: 10px 0 0 10px;
         transform: translateZ(0);
       }
@@ -153,7 +153,11 @@ const SingDetails = ({ record }) => {
         closeIcon={<Icon>close</Icon>}
         header={
           <CardTitle
-            image={jacketImage.replace('30x30', '100x100')}
+            image={
+              jacketImage.length > 0
+                ? jacketImage.replace('30x30', '100x100')
+                : '../images/util/noimage.jpg'
+            }
             reveal
             waves="light"
           />
