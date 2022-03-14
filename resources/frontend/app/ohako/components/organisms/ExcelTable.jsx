@@ -5,13 +5,15 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import { useTableInit } from '../../hooks/useTableInit'
 import { useSetlists } from '../../providers/SetlistProvider'
 import { useProblemInit } from '../../hooks/useProblemInit'
-import { visibles } from '../../schema/columns'
+import { columnsObj as vis } from '../../schema/columns'
 import TrashButton from '../atoms/triggerButton/TrashButton'
 import EditButton from '../atoms/triggerButton/EditButton'
 import format from 'date-fns/format'
 import RateStarsPrint from '../../../common/components/RateStarsPrint'
 import ScoreChartPrint from '../../../common/components/ScoreChartPrint'
 import SingKeyPrint from '../atoms/table/SingKeyPrint'
+import SingDetails from '../molecules/SingDetails'
+import classNames from 'classnames'
 
 const ExcelTable = () => {
   useTableInit()
@@ -115,6 +117,13 @@ const ExcelTable = () => {
   const css_th = css`
     text-align: center;
   `
+  const css_sing_details = css`
+    @media (max-width: 40em) {
+      position: relative;
+      height: 150px;
+      margin: 1rem -0.25em 2rem;
+    }
+  `
 
   return (
     <div className={css_wrap}>
@@ -122,12 +131,30 @@ const ExcelTable = () => {
         <Thead className={css_thead}>
           <Tr>
             <Th></Th>
-            {visibles.map((obj, i) => (
-              <Th key={i} className={css_th}>
-                <span className={css_thead_icon}>{obj.icon}</span>
-                <span className={css_thead_title}>{obj.title}</span>
-              </Th>
-            ))}
+            <Th className={css_th}>
+              <span className={css_thead_icon}>{vis.singDate.icon}</span>
+              <span className={css_thead_title}>{vis.singDate.title}</span>
+            </Th>
+            <Th className={css_th}>
+              <span className={css_thead_icon}>{vis.songName.icon}</span>
+              <span className={css_thead_title}>Sing Details</span>
+            </Th>
+            <Th className={css_th}>
+              <span className={css_thead_icon}>{vis.singKey.icon}</span>
+              <span className={css_thead_title}>{vis.singKey.title}</span>
+            </Th>
+            <Th className={css_th}>
+              <span className={css_thead_icon}>{vis.rating.icon}</span>
+              <span className={css_thead_title}>{vis.rating.title}</span>
+            </Th>
+            <Th className={css_th}>
+              <span className={css_thead_icon}>{vis.score.icon}</span>
+              <span className={css_thead_title}>{vis.score.title}</span>
+            </Th>
+            <Th className={css_th}>
+              <span className={css_thead_icon}>{vis.registDate.icon}</span>
+              <span className={css_thead_title}>{vis.registDate.title}</span>
+            </Th>
             <Th></Th>
           </Tr>
         </Thead>
@@ -138,8 +165,9 @@ const ExcelTable = () => {
                 <EditButton record={record} />
               </Td>
               <Td>{format(record.singDate, 'yyyy/MM/dd')}</Td>
-              <Td>{record.artistName}</Td>
-              <Td>{record.songName}</Td>
+              <Td className={css_sing_details}>
+                <SingDetails record={record} />
+              </Td>
               <Td>
                 <SingKeyPrint value={record.singKey} />
               </Td>
@@ -149,14 +177,6 @@ const ExcelTable = () => {
               <Td>
                 <ScoreChartPrint score={record.score} />
               </Td>
-              <Td>
-                <ul>
-                  {record.problems.map((problem, i) => (
-                    <li key={`problem-${i}`}>{problem}</li>
-                  ))}
-                </ul>
-              </Td>
-              <Td>{record.memo}</Td>
               <Td>{format(record.registDate, 'yyyy/MM/dd kk:mm:ss')}</Td>
               <Td>
                 <TrashButton recordId={record.id} />

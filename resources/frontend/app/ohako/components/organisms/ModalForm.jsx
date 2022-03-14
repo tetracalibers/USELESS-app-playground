@@ -35,7 +35,7 @@ const ModalForm = ({
   const css_wrap = css`
     background-color: rgba(255, 255, 255, 0);
     background-image: linear-gradient(315deg, #f9c5d17d 0%, #9795ef7a 74%);
-    backdrop-filter: blur(5px) drop-shadow(2px 4px 6px white);
+    backdrop-filter: blur(20px) drop-shadow(2px 4px 6px white);
     overflow-y: auto;
     color: #485461;
     h4 {
