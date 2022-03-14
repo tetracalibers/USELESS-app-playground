@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { css } from '@emotion/css'
 import { Card, CardTitle, Icon } from 'react-materialize'
 import { BiUserVoice } from 'react-icons/bi'
+import { HiCursorClick } from 'react-icons/hi'
 import { columnsObj as col } from '../../schema/columns'
+import classNames from 'classnames'
 
 const SingDetails = ({ record }) => {
   const { artistName, songName, memo, problems, jacketImage } = record
@@ -32,6 +34,7 @@ const SingDetails = ({ record }) => {
       justify-items: center;
       width: 40vw;
       box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+      cursor: pointer;
       @media (max-width: 40em) {
         backdrop-filter: blur(2px);
         width: 100%;
@@ -49,17 +52,21 @@ const SingDetails = ({ record }) => {
       }
     }
     .card-content {
-      position: relative;
       width: calc(100% - 100px);
+      padding: 0;
       & > div {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        text-shadow: 0 0 black;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: calc(40vw - 100px);
+        height: 100px;
+        text-shadow: black 0px 0px;
+        box-sizing: border-box;
         @media (max-width: 40em) {
           text-shadow: none;
+          width: 100%;
         }
       }
     }
@@ -117,6 +124,28 @@ const SingDetails = ({ record }) => {
     transform: translate(-50%, -50%);
     color: rgba(140, 170, 200, 0.25);
   `
+  const css_card_content_wrap = css`
+    width: 100%;
+    height: 100px;
+    padding: 24px;
+    box-sizing: border-box;
+    display: grid;
+    @media (max-width: 40em) {
+      padding: 24px 0;
+    }
+  `
+  const css_click_icon = css`
+    position: absolute;
+    display: inline-block;
+    left: calc(40vw - 100px - 1.5rem);
+    top: calc(100px - 2rem);
+    z-index: -1;
+    color: #fffff070;
+    font-size: 1.5rem;
+    @media (max-width: 40em) {
+      left: calc(100% - 1.5rem);
+    }
+  `
 
   return (
     <div className={css_wrap}>
@@ -155,12 +184,18 @@ const SingDetails = ({ record }) => {
             </div>
           </div>
         }
-        revealIcon={<Icon>more_vert</Icon>}
       >
-        <div className={css_song_name}>{songName}</div>
-        <div className={css_artist_name}>
-          <BiUserVoice />
-          {artistName}
+        <div className={classNames('activator', css_card_content_wrap)}>
+          <div className={classNames('activator', css_song_name)}>
+            {songName}
+          </div>
+          <div className={classNames('activator', css_artist_name)}>
+            <BiUserVoice />
+            {artistName}
+          </div>
+          <span className={classNames('activator', css_click_icon)}>
+            <HiCursorClick />
+          </span>
         </div>
       </Card>
     </div>
