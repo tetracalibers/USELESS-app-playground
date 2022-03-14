@@ -83,6 +83,7 @@ const SingDetails = ({ record }) => {
   `
   const css_song_name = css`
     font-weight: 700;
+    align-self: end;
   `
   const css_artist_name = css`
     font-size: 0.8rem;
@@ -127,12 +128,9 @@ const SingDetails = ({ record }) => {
   const css_card_content_wrap = css`
     width: 100%;
     height: 100px;
-    padding: 24px;
+    padding: 0;
     box-sizing: border-box;
     display: grid;
-    @media (max-width: 40em) {
-      padding: 24px 0;
-    }
   `
   const css_click_icon = css`
     position: absolute;
