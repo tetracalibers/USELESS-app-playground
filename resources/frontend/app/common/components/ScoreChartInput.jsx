@@ -3,7 +3,6 @@ import { useWindowSize } from '@react-hook/window-size'
 import { css } from '@emotion/css'
 import { TextInput } from 'react-materialize'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
-import 'react-circular-progressbar/dist/styles.css'
 
 const ScoreChartInput = ({ score, setScore }) => {
   const [width, height] = useWindowSize()

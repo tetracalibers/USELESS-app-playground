@@ -10,6 +10,7 @@ import TrashButton from '../atoms/triggerButton/TrashButton'
 import EditButton from '../atoms/triggerButton/EditButton'
 import format from 'date-fns/format'
 import RateStarsPrint from '../../../common/components/RateStarsPrint'
+import ScoreChartPrint from '../../../common/components/ScoreChartPrint'
 
 const ExcelTable = () => {
   useTableInit()
@@ -144,7 +145,9 @@ const ExcelTable = () => {
               <Td>
                 <RateStarsPrint rate={record.rating} />
               </Td>
-              <Td>{record.score}</Td>
+              <Td>
+                <ScoreChartPrint score={record.score} />
+              </Td>
               <Td>
                 <ul>
                   {record.problems.map((problem, i) => (
