@@ -9,17 +9,29 @@ const RateStarsPrint = ({ rate, max = 5 }) => {
     @media (max-width: 40em) {
       font-size: 1.25rem;
     }
+  `
+  const css_star_active = css`
     svg {
       fill: #ebf928;
       filter: drop-shadow(0px 0px 1px ivory);
       transform: translateZ(0);
     }
   `
+  const css_star_inactive = css`
+    svg {
+      fill: #b8c6db80;
+    }
+  `
 
   return (
     <div className={css_wrap}>
       {[...Array(rate)].map((_, i) => (
-        <span key={i}>
+        <span key={i} className={css_star_active}>
+          <ImStarFull />
+        </span>
+      ))}
+      {[...Array(max - rate)].map((_, i) => (
+        <span key={rate + i + 1} className={css_star_inactive}>
           <ImStarFull />
         </span>
       ))}
