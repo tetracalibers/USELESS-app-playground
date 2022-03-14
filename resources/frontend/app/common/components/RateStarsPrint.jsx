@@ -2,15 +2,16 @@ import React from 'react'
 import { ImStarFull } from 'react-icons/im'
 import { css } from '@emotion/css'
 
-const RateStarsPrint = ({ rate }) => {
+const RateStarsPrint = ({ rate, max = 5 }) => {
   const css_wrap = css`
-    width: 5em;
+    width: ${max}em;
+    line-height: 1em;
     @media (max-width: 40em) {
       font-size: 1.25rem;
     }
     svg {
       fill: #ebf928;
-      filter: drop-shadow(0px 0px 6px ivory);
+      filter: drop-shadow(0px 0px 1px ivory);
       transform: translateZ(0);
     }
   `
