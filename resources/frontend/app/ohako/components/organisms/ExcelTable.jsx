@@ -11,6 +11,7 @@ import EditButton from '../atoms/triggerButton/EditButton'
 import format from 'date-fns/format'
 import RateStarsPrint from '../../../common/components/RateStarsPrint'
 import ScoreChartPrint from '../../../common/components/ScoreChartPrint'
+import SingKeyPrint from '../atoms/SingKeyPrint'
 
 const ExcelTable = () => {
   useTableInit()
@@ -140,7 +141,7 @@ const ExcelTable = () => {
               <Td>{record.artistName}</Td>
               <Td>{record.songName}</Td>
               <Td>
-                {record.singKey > 0 ? `+${record.singKey}` : record.singKey}
+                <SingKeyPrint value={record.singKey} />
               </Td>
               <Td>
                 <RateStarsPrint rate={record.rating} />
