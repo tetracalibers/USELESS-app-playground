@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { css } from '@emotion/css'
-import { Card, CardTitle, Icon } from 'react-materialize'
+import { Card, Icon } from 'react-materialize'
 import { BiUserVoice } from 'react-icons/bi'
 import { HiCursorClick } from 'react-icons/hi'
 import { columnsObj as col } from '../../schema/columns'
