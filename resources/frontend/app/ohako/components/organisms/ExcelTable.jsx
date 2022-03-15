@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { css } from '@emotion/css'
 import { Table, Thead, Tbody, Tr, Td, Th } from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
@@ -22,6 +22,13 @@ const ExcelTable = () => {
   useProblemInit()
   const { allRecords } = useSetlists()
   const [width, height] = useWindowSize()
+
+  const latestRecordId = useMemo(() => {
+    if (allRecords.length > 0) {
+      const idArr = allRecords.map((record) => record.id)
+      return Math.max(...idArr)
+    }
+  }, [allRecords.length])
 
   const image_back = '../images/ohako/twinkleBack.jpg'
   const css_wrap = css`
@@ -181,7 +188,13 @@ const ExcelTable = () => {
           ) : (
             <>
               {allRecords.map((record, rowIdx) => (
-                <Tr key={rowIdx} className={css_tbody_tr}>
+                <Tr
+                  key={rowIdx}
+                  className={css_tbody_tr}
+                  id={
+                    record.id == latestRecordId && 'sing-history-latest-record'
+                  }
+                >
                   <Td>
                     <EditButton record={record} />
                   </Td>

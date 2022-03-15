@@ -8,6 +8,7 @@ import Loading from '../../../common/components/Loading'
 import ConfigSideMenu from '../organisms/ConfigSideMenu'
 import Header from '../molecules/Header'
 import EditModalForm from '../organisms/EditModalForm'
+import ScrollButtonsFab from '../molecules/ScrollButtonsFab'
 
 const AddModalForm = lazy(() => import('../organisms/AddModalForm'))
 
@@ -45,6 +46,7 @@ const Top = () => {
               <EditModalForm />
               <AddModalForm />
               <AddButton />
+              <ScrollButtonsFab />
             </Suspense>
           )}
         </main>
