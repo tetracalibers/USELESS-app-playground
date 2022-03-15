@@ -5,6 +5,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import { useTableInit } from '../../hooks/useTableInit'
 import { useSetlists } from '../../providers/SetlistProvider'
 import { useProblemInit } from '../../hooks/useProblemInit'
+import { useWindowSize } from '@react-hook/window-size'
 import { columnsObj as vis } from '../../schema/columns'
 import TrashButton from '../atoms/triggerButton/TrashButton'
 import EditButton from '../atoms/triggerButton/EditButton'
@@ -14,11 +15,13 @@ import ScoreChartPrint from '../../../common/components/ScoreChartPrint'
 import SingKeyPrint from '../atoms/table/SingKeyPrint'
 import SingDetails from '../molecules/SingDetails'
 import classNames from 'classnames'
+import PuffLoader from 'react-spinners/PuffLoader'
 
 const ExcelTable = () => {
   useTableInit()
   useProblemInit()
   const { allRecords } = useSetlists()
+  const [width, height] = useWindowSize()
 
   const image_back = '../images/ohako/twinkleBack.jpg'
   const css_wrap = css`
@@ -110,6 +113,20 @@ const ExcelTable = () => {
   `
   const css_tbody = css`
     font-family: 'Klee';
+    ${allRecords.length == 0 &&
+    `
+      position: relative;
+      height: calc(100vh - 30px - 1.5rem - 100px - 1px);
+      @media (max-width: 40em) {
+        height: calc(100vh - 100px);
+      }
+      & > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    `}
   `
   const css_tbody_tr = css`
     border-bottom: 0.5px dashed #f6f0ea80;
@@ -159,30 +176,36 @@ const ExcelTable = () => {
           </Tr>
         </Thead>
         <Tbody className={css_tbody}>
-          {allRecords.map((record, rowIdx) => (
-            <Tr key={rowIdx} className={css_tbody_tr}>
-              <Td>
-                <EditButton record={record} />
-              </Td>
-              <Td>{format(record.singDate, 'yyyy/MM/dd')}</Td>
-              <Td className={css_sing_details}>
-                <SingDetails record={record} />
-              </Td>
-              <Td>
-                <SingKeyPrint value={record.singKey} />
-              </Td>
-              <Td>
-                <RateStarsPrint rate={record.rating} />
-              </Td>
-              <Td>
-                <ScoreChartPrint score={record.score} />
-              </Td>
-              <Td>{format(record.registDate, 'yyyy/MM/dd kk:mm:ss')}</Td>
-              <Td>
-                <TrashButton recordId={record.id} />
-              </Td>
-            </Tr>
-          ))}
+          {allRecords.length == 0 ? (
+            <PuffLoader size={height * 0.4} color="#aecad6" />
+          ) : (
+            <>
+              {allRecords.map((record, rowIdx) => (
+                <Tr key={rowIdx} className={css_tbody_tr}>
+                  <Td>
+                    <EditButton record={record} />
+                  </Td>
+                  <Td>{format(record.singDate, 'yyyy/MM/dd')}</Td>
+                  <Td className={css_sing_details}>
+                    <SingDetails record={record} />
+                  </Td>
+                  <Td>
+                    <SingKeyPrint value={record.singKey} />
+                  </Td>
+                  <Td>
+                    <RateStarsPrint rate={record.rating} />
+                  </Td>
+                  <Td>
+                    <ScoreChartPrint score={record.score} />
+                  </Td>
+                  <Td>{format(record.registDate, 'yyyy/MM/dd kk:mm:ss')}</Td>
+                  <Td>
+                    <TrashButton recordId={record.id} />
+                  </Td>
+                </Tr>
+              ))}
+            </>
+          )}
         </Tbody>
       </Table>
     </div>
