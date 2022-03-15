@@ -60,6 +60,44 @@ class SetlistEntity
       ->get();
   }
   
+  public function getBySelectCondition(Request $request) 
+  {
+    return OhakoSetlist::with('problems')
+      ->where('user_id', $request->userId)
+      ->where($request->target, $request->value)
+      ->orderBy('sing_date', 'desc')
+      ->get();
+  }
+  
+  public function getByRangeCondition(Request $request)
+  {
+    return OhakoSetlist::with('problems')
+      ->where('user_id', $request->userId)
+      ->whereBetween($request->target, $request->range)
+      ->orderBy('sing_date', 'desc')
+      ->get();
+  }
+  
+  public function getUniqueList(Request $request)
+  {
+    return OhakoSetlist::where('user_id', $request->userId)
+      ->only([$request->target])
+      ->unique()
+      ->sort()
+      ->get();
+  }
+  
+  public function getSongByArtist(Request $request)
+  {
+    return OhakoSetlist::where('user_id', $request->userId)
+      ->where('artist_itunes_id', $request->artistId)
+      ->only(['song_name', 'sing_key', 'sing_date', 'jacket_image', 'created_at'])
+      ->orderBy('created_at', 'desc')
+      ->orderBy('sing_date', 'desc')
+      ->unique('song_name')
+      ->get();
+  }
+  
   public function delete(Request $request)
   {
     $targetRecord = OhakoSetlist::find($request->id);
