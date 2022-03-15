@@ -86,7 +86,6 @@ const MusicSuggestForm = () => {
   }
 
   const zenkakuEndInArtist = (t) => {
-    console.log(t.data)
     zenkakuEnd()
     setMatchArtists(_filteredArtists(t.data))
   }
