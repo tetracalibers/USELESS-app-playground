@@ -17,6 +17,6 @@ class SetlistInitUsecase
   
   public function init(Request $request)
   {
-    return $this->setlist->getAllByUser($request);
+    return $this->setlist->getInitialSelect($request);
   }
 }

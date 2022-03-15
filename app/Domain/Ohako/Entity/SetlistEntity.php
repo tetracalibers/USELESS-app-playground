@@ -60,6 +60,21 @@ class SetlistEntity
       ->get();
   }
   
+  public function getInitialSelect(Request $request)
+  {
+    $allSingDate = OhakoSetlist::where('user_id', $request->userId)
+      ->get()
+      ->pluck('sing_date')
+      ->sortDesc();
+    $latestSingDate = $allSingDate->first();
+    
+    return OhakoSetlist::with('problems')
+      ->where('user_id', $request->userId)
+      ->where('sing_date', $latestSingDate)
+      ->orderBy('created_at', 'asc')
+      ->get();
+  }
+  
   public function getBySelectCondition(Request $request) 
   {
     return OhakoSetlist::with('problems')
