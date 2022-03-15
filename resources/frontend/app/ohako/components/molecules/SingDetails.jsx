@@ -43,7 +43,9 @@ const SingDetails = ({ record }) => {
           rgb(135 206 235 / 51%) -6px -2px 16px 0px;
       }
     }
-    .card-image {
+    .lazy-load-image-background.black-and-white.lazy-load-image-loaded {
+      z-index: -1;
+      position: relative;
       img {
         width: 100px;
         height: 100px;
