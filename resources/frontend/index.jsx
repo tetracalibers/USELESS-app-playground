@@ -12,6 +12,7 @@ import 'rc-slider/assets/index.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import 'rc-image/assets/index.css'
 import 'react-circular-progressbar/dist/styles.css'
+import 'react-lazy-load-image-component/src/effects/black-and-white.css'
 
 const queryClient = new QueryClient()
 

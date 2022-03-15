@@ -5,6 +5,7 @@ import { BiUserVoice } from 'react-icons/bi'
 import { HiCursorClick } from 'react-icons/hi'
 import { columnsObj as col } from '../../schema/columns'
 import classNames from 'classnames'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const SingDetails = ({ record }) => {
   const { artistName, songName, memo, problems, jacketImage } = record
@@ -150,15 +151,18 @@ const SingDetails = ({ record }) => {
       <Card
         closeIcon={<Icon>close</Icon>}
         header={
-          <CardTitle
-            image={
-              jacketImage.length > 0
-                ? jacketImage.replace('30x30', '100x100')
-                : '../images/util/noimage.jpg'
-            }
-            reveal
-            waves="light"
-          />
+          <div className="activator">
+            <LazyLoadImage
+              height={100}
+              src={
+                jacketImage.length > 0
+                  ? jacketImage.replace('30x30', '100x100')
+                  : '../images/util/noimage.jpg'
+              }
+              width={100}
+              effect="black-and-white"
+            />
+          </div>
         }
         reveal={
           <div>
