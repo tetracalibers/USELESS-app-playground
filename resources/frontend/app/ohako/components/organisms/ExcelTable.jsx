@@ -3,6 +3,9 @@ import { css } from '@emotion/css'
 import { Table, Thead, Tbody, Tr, Td, Th } from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import { useTableInit } from '../../hooks/useTableInit'
+import { useRegisteredSingDateInit } from '../../hooks/useRegisteredSingDateInit'
+import { useRegisteredArtistInit } from '../../hooks/useRegisteredArtistInit'
+import { useRegisteredSongInit } from '../../hooks/useRegisteredSongInit'
 import { useSetlists } from '../../providers/SetlistProvider'
 import { useProblemInit } from '../../hooks/useProblemInit'
 import { useWindowSize } from '@react-hook/window-size'
@@ -19,6 +22,9 @@ import PuffLoader from 'react-spinners/PuffLoader'
 
 const ExcelTable = () => {
   useTableInit()
+  useRegisteredSingDateInit()
+  useRegisteredArtistInit()
+  useRegisteredSongInit()
   useProblemInit()
   const { allRecords } = useSetlists()
   const [width, height] = useWindowSize()
